@@ -12,9 +12,14 @@ class HomePageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function home()
+    {
+       return view("pages.index");
+
+    }
     public function index()
     {
-        //
+        dd("hi");
     }
 
     /**
