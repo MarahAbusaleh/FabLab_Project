@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\EventsDataTable;
 use App\Models\Events;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,9 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(EventsDataTable $dataTable)
     {
-        //
+        return $dataTable->render('admin.pages.events.index');
     }
 
     /**
