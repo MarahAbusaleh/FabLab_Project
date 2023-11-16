@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Components extends Model
 {
     use HasFactory;
+
+    protected $fillalbe = 
+    [
+    "name",
+    "image",
+    "description",
+    ];
 }

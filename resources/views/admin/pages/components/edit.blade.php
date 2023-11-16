@@ -4,15 +4,18 @@
         <div class="content">
             <div class="card card-default">
                 <div class="card-header">
-                    <h2>Create Components</h2>
+                    <h2>Edit Component: {{ $component->name }}</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('components.update', $component->id) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="row">
                             <div class="col-xl-2">
                                 <div class="mb-5">
-                                    <img id="showImage" width="100px" src="{{ url('no-image.jpg') }}">
+                                    <img id="showImage" width="100px"
+                                        src="{{ $component->image == '' ? url('no-image.jpg') : asset($component->image) }}">
                                 </div>
                             </div>
                             <div class="col-xl-10">
@@ -31,7 +34,7 @@
                                             <span class="input-group-text mdi mdi-certificate" id="mdi-account"></span>
                                         </div>
                                         <input type="text" class="form-control" name="name"
-                                            value="{{ old('name') }}">
+                                            value="{{  $component->name }}">
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +46,7 @@
                                             <span class="input-group-text mdi mdi-format-list-bulleted-type"
                                                 id="basic-addon1"></span>
                                         </div>
-                                        <textarea rows="5" class="form-control" name="description">{{ old('description') }}</textarea>
+                                        <textarea rows="5" class="form-control" name="description">{{ $component->description }}</textarea>
                                     </div>
                                 </div>
                             </div>
