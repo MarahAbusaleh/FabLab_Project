@@ -331,12 +331,12 @@
                         <span class="d-none d-lg-inline-block">{{ $profileData->name }}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        {{-- <li>
-                            <a class="dropdown-link-item" href="{{ route('admin.profile') }}">
+                        <li>
+                            <a class="dropdown-link-item" href="{{ route('profile') }}">
                                 <i class="mdi mdi-account-outline"></i>
                                 <span class="nav-text">My Profile</span>
                             </a>
-                        </li> --}}
+                        </li>
                         <li class="dropdown-footer">
                             <a class="dropdown-link-item"
                                 onclick="event.preventDefault();document.getElementById('adminLogoutForm').submit();"

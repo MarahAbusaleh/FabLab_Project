@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\HomePageDataTable;
-use App\Models\HomePage;
+use App\DataTables\AdminUsersDataTable;
+use App\Models\User;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class HomePageController extends Controller
+class UserController extends Controller
 {
     use ImageUploadTrait;
     /**
@@ -15,13 +16,9 @@ class HomePageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function home()
+    public function index(AdminUsersDataTable $dataTable)
     {
-        return view("pages.index");
-    }
-    public function index(HomePageDataTable $dataTable)
-    {
-        return $dataTable->render('admin.pages.home-page.index');
+        return $dataTable->render('admin.pages.admins.index');
     }
 
     /**
@@ -31,7 +28,7 @@ class HomePageController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.home-page.create');
+        return view('admin.pages.admins.create');
     }
 
     /**
@@ -44,34 +41,35 @@ class HomePageController extends Controller
     {
         $request->validate([
             'image' => ['required', 'max:4196', 'image'],
-            'header' => ['required', 'max:20'],
-            'text' => ['required', 'max:50'],
+            'name' => ['required', 'max:50'],
+            'email' => ['required', 'email'],
         ]);
 
-        $homePage = new HomePage();
+        $user = new User();
 
         $imagePath = $this->uploadImage($request, 'image', 'uploads');
 
-        $homePage->image = $imagePath;
-        $homePage->header = $request->header;
-        $homePage->text = $request->text;
-        $homePage->save();
+        $user->image = $imagePath;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make('password');
+        $user->save();
 
         $notification = array(
-            'message' => 'Home Page Created Successfully!!',
+            'message' => 'Admin Created Successfully!!',
             'alert-type' => 'success',
         );
 
-        return redirect()->route('home-page.index')->with($notification);
+        return redirect()->route('admin-users.index')->with($notification);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\HomePage  $homePage
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(HomePage $homePage)
+    public function show($id)
     {
         //
     }
@@ -79,58 +77,59 @@ class HomePageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\HomePage  $homePage
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $homePage = HomePage::findOrFail($id);
-        return view('admin.pages.home-page.edit', compact('homePage'));
+        $admin = User::findOrFail($id);
+        return view('admin.pages.admins.edit', compact('admin'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\HomePage  $homePage
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $request->validate([
             'image' => ['nullable', 'max:4196', 'image'],
-            'header' => ['required', 'max:20'],
-            'text' => ['required', 'max:50'],
+            'name' => ['required', 'max:50'],
+            'email' => ['required', 'email'],
         ]);
 
-        $homePage = HomePage::findOrFail($id);
+        $user = User::findOrFail($id);
 
-        $imagePath = $this->updateImage($request, 'image', 'uploads', $homePage->image);
+        $imagePath = $this->updateImage($request, 'image', 'uploads', $user->image);
 
-        $homePage->image = empty(!$imagePath) ? $imagePath : $homePage->image;
-        $homePage->header = $request->header;
-        $homePage->text = $request->text;
-        $homePage->save();
+        $user->image = empty(!$imagePath) ? $imagePath : $user->image;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make('password');
+        $user->save();
 
         $notification = array(
-            'message' => 'Home Page Updated Successfully!!',
+            'message' => 'Admin Created Successfully!!',
             'alert-type' => 'success',
         );
 
-        return redirect()->route('home-page.index')->with($notification);
+        return redirect()->route('admin-users.index')->with($notification);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\HomePage  $homePage
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $homePage = HomePage::findOrFail($id);
-        $this->deleteImage($homePage->image);
-        $homePage->delete();
+        $user = User::findOrFail($id);
+        $this->deleteImage($user->image);
+        $user->delete();
 
         return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
     }

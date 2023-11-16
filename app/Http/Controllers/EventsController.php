@@ -103,13 +103,13 @@ class EventsController extends Controller
 
         $imagePath = $this->updateImage($request, 'image', 'uploads', $event->image);
 
-        $event->image = $imagePath;
+        $event->image = empty(!$imagePath) ? $imagePath : $event->image;
         $event->name = $request->name;
         $event->description = $request->description;
         $event->save();
 
         $notification = array(
-            'message' => 'Event Created Successfully!!',
+            'message' => 'Event Updated Successfully!!',
             'alert-type' => 'success',
         );
 
