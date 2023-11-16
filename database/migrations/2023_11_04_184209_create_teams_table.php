@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('role');
             $table->string('name');
             $table->string('email');
-            $table->string('image');
+            $table->string('image')->nullable()->default('img/defult-team.jpg');
             $table->text('description');
             $table->timestamps();
         });

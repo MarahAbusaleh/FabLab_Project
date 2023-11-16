@@ -23,6 +23,12 @@
                         <span class="nav-text">Events</span>
                     </a>
                 </li>
+                <li class="{{ set_active(['teams.*']) }}">
+                    <a class="sidenav-item-link" href="{{ route('teams.index') }}">
+                        <i class="mdi mdi-account-group"></i>
+                        <span class="nav-text">Teams</span>
+                    </a>
+                </li>
                 {{-- <li class="{{ set_active(['admin.categories.*']) }}">
                     <a class="sidenav-item-link" href="{{ route('admin.categories.index') }}">
                         <i class="mdi mdi-certificate"></i>
