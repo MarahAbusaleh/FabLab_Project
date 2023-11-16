@@ -2,69 +2,119 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.base.css') }}">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.png') }}" />
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Login</title>
+        <!-- GOOGLE FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
+        <link href="{{ asset('admin/plugins/material/css/materialdesignicons.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('admin/plugins/simplebar/simplebar.css') }}" rel="stylesheet" />
+
+        <!-- PLUGINS CSS STYLE -->
+        <link href="{{ asset('admin/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
+        <link href="{{ asset('admin/plugins/toaster/toastr.min.css') }}" rel="stylesheet" />
+
+        <!-- MONO CSS -->
+        <link id="main-css-href" rel="stylesheet" href="{{ asset('admin/css/style.css') }}" />
+
+
+
+
+        <!-- FAVICON -->
+        <link href="{{ asset('admin/images/favicon.png') }}" rel="shortcut icon" />
+
+        <!--
+    HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+  -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+        <script src="{{ asset('admin/plugins/nprogress/nprogress.js') }}"></script>
+    </head>
+
 </head>
 
-<body>
-    <div class="container-scroller">
-        <div class="container-fluid page-body-wrapper full-page-wrapper">
-            <div class="row w-100 m-0">
-                <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
-                    <div class="card col-lg-4 mx-auto">
-                        <div class="card-body px-5 py-5">
-                            <h3 class="card-title text-left mb-3">Login</h3>
-                            <form method="POST" action="{{ route('login') }}">
+<body class="bg-light-gray" id="body">
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh">
+        <div class="d-flex flex-column justify-content-between">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-10">
+                    <div class="card card-default mb-0">
+                        <div class="card-header pb-0">
+                            <div class="app-brand w-100 d-flex justify-content-center border-bottom-0">
+                                <a class="w-auto pl-0" href="/index.html">
+                                    <img src="{{ asset('admin/images/logo.png') }}" alt="Mono">
+                                    <span class="brand-name text-dark">Admin Login</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body px-5 pb-5 pt-0">
+
+                            <h4 class="text-dark mb-6 text-center">Sign in</h4>
+
+                            <form action="{{ route('login') }}" method="POST">
                                 @csrf
-                                <div class="form-group">
-                                    <label>Email *</label>
-                                    <input name="email" type="text" value="{{ old('email') }}"
-                                        class="form-control p_input">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password *</label>
-                                    <input name="password" type="password" class="form-control p_input">
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
+                                <div class="row">
+                                    <div class="form-group col-md-12 mb-4">
+                                        <input type="text" class="form-control input-lg" name="email"
+                                            value="{{ old('email') }}" placeholder="Email or Username">
+                                    </div>
+                                    {{-- @error('login')
+                                        <div class="d-block text-danger" style="margin-top: -25px;margin-bottom:15px">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror --}}
+                                    <div class="form-group col-md-12 ">
+                                        <input type="password" name="password" class="form-control input-lg"
+                                            placeholder="Password">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary btn-pill mb-4">Sign In</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <!-- content-wrapper ends -->
             </div>
-            <!-- row ends -->
         </div>
-        <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="{{ asset('admin/assets/vendors/js/vendor.bundle.base.js') }}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="{{ asset('admin/assets/js/off-canvas.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/misc.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/settings.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/todolist.js') }}"></script>
-    <!-- endinject -->
+    <script src="{{ asset('plugins/toaster/toastr.min.js') }}"></script>
+    <script>
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                toastr.error("{{ $error }}")
+            @endforeach
+        @endif
+    </script>
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
+    @stack('scripts')
 </body>
 
 </html>

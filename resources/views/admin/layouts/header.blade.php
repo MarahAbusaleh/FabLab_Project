@@ -1,211 +1,356 @@
-            <!-- partial:partials/_navbar.html -->
-            <nav class="navbar p-0 fixed-top d-flex flex-row">
-                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
-                            alt="logo" /></a>
-                </div>
-                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                        <span class="mdi mdi-menu"></span>
+<!-- Header -->
+<header class="main-header" id="header">
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+        <!-- Sidebar toggle button -->
+        <button id="sidebar-toggler" class="sidebar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+        </button>
+
+        <span class="page-title">dashboard</span>
+
+        <div class="navbar-right ">
+
+            <!-- search form -->
+            <div class="search-form">
+                <form action="index.html" method="get">
+                    <div class="input-group input-group-sm" id="input-group-search">
+                        <input type="text" autocomplete="off" name="query" id="search-input" class="form-control"
+                            placeholder="Search..." />
+                        <div class="input-group-append">
+                            <button class="btn" type="button">/</button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="dropdown-menu dropdown-menu-search">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Morbi leo risus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Dapibus ac facilisis in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Porta ac consectetur ac</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Vestibulum at eros</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <ul class="nav navbar-nav">
+                <!-- Offcanvas -->
+                <li class="custom-dropdown">
+                    <a class="offcanvas-toggler active custom-dropdown-toggler" data-offcanvas="contact-off"
+                        href="javascript:">
+                        <i class="mdi mdi-contacts icon"></i>
+                    </a>
+                </li>
+                <li class="custom-dropdown">
+                    <button class="notify-toggler custom-dropdown-toggler">
+                        <i class="mdi mdi-bell-outline icon"></i>
+                        <span class="badge badge-xs rounded-circle">21</span>
                     </button>
-                    <ul class="navbar-nav w-100">
-                        <li class="nav-item w-100">
-                            <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                                <input type="text" class="form-control" placeholder="Search products">
-                            </form>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav navbar-nav-right">
-                        <li class="nav-item dropdown d-none d-lg-block">
-                            <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
-                                data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="createbuttonDropdown">
-                                <h6 class="p-3 mb-0">Projects</h6>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-dark rounded-circle">
-                                            <i class="mdi mdi-file-outline text-primary"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject ellipsis mb-1">Software Development</p>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-dark rounded-circle">
-                                            <i class="mdi mdi-web text-info"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject ellipsis mb-1">UI Development</p>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-dark rounded-circle">
-                                            <i class="mdi mdi-layers text-danger"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject ellipsis mb-1">Software Testing</p>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <p class="p-3 mb-0 text-center">See all projects</p>
+                    <div class="dropdown-notify">
+
+                        <header>
+                            <div class="nav nav-underline" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="all-tabs" data-toggle="tab" href="#all"
+                                    role="tab" aria-controls="nav-home" aria-selected="true">All (5)</a>
+                                <a class="nav-item nav-link" id="message-tab" data-toggle="tab" href="#message"
+                                    role="tab" aria-controls="nav-profile" aria-selected="false">Msgs (4)</a>
+                                <a class="nav-item nav-link" id="other-tab" data-toggle="tab" href="#other"
+                                    role="tab" aria-controls="nav-contact" aria-selected="false">Others (3)</a>
                             </div>
-                        </li>
-                        <li class="nav-item nav-settings d-none d-lg-block">
-                            <a class="nav-link" href="#">
-                                <i class="mdi mdi-view-grid"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown border-left">
-                            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
-                                data-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-email"></i>
-                                <span class="count bg-success"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="messageDropdown">
-                                <h6 class="p-3 mb-0">Messages</h6>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face4.jpg" alt="image"
-                                            class="rounded-circle profile-pic">
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
-                                        <p class="text-muted mb-0"> 1 Minutes ago </p>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face2.jpg" alt="image"
-                                            class="rounded-circle profile-pic">
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
-                                        <p class="text-muted mb-0"> 15 Minutes ago </p>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face3.jpg" alt="image"
-                                            class="rounded-circle profile-pic">
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
-                                        <p class="text-muted mb-0"> 18 Minutes ago </p>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <p class="p-3 mb-0 text-center">4 new messages</p>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown border-left">
-                            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
-                                data-toggle="dropdown">
-                                <i class="mdi mdi-bell"></i>
-                                <span class="count bg-danger"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="notificationDropdown">
-                                <h6 class="p-3 mb-0">Notifications</h6>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-dark rounded-circle">
-                                            <i class="mdi mdi-calendar text-success"></i>
+                        </header>
+
+                        <div class="" data-simplebar style="height: 325px;">
+                            <div class="tab-content" id="myTabContent">
+
+                                <div class="tab-pane fade show active" id="all" role="tabpanel"
+                                    aria-labelledby="all-tabs">
+
+                                    <div class="media media-sm bg-warning-10 p-4 mb-0">
+                                        <div class="media-sm-wrapper">
+                                            <a href="user-profile.html">
+                                                <img src="{{ asset('images/user/user-sm-02.jpg') }}" alt="User Image">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">John Doe</span>
+                                                <span class="discribe">Extremity sweetness difficult behaviour he of. On
+                                                    disposal of as
+                                                    landlord horrible. Afraid at highly months do things on at.</span>
+                                                <span class="time">
+                                                    <time>Just now</time>...
+                                                </span>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject mb-1">Event today</p>
-                                        <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event
-                                            today </p>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-dark rounded-circle">
-                                            <i class="mdi mdi-settings text-danger"></i>
+
+                                    <div class="media media-sm p-4 bg-light mb-0">
+                                        <div class="media-sm-wrapper bg-primary">
+                                            <a href="user-profile.html">
+                                                <i class="mdi mdi-calendar-check-outline"></i>
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">New event added</span>
+                                                <span class="discribe">1/3/2014 (1pm - 2pm)</span>
+                                                <span class="time">
+                                                    <time>10 min ago...</time>...
+                                                </span>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject mb-1">Settings</p>
-                                        <p class="text-muted ellipsis mb-0"> Update dashboard </p>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-dark rounded-circle">
-                                            <i class="mdi mdi-link-variant text-warning"></i>
+
+                                    <div class="media media-sm p-4 mb-0">
+                                        <div class="media-sm-wrapper">
+                                            <a href="user-profile.html">
+                                                <img src="{{ asset('images/user/user-sm-03.jpg') }}" alt="User Image">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">Sagge Hudson</span>
+                                                <span class="discribe">On disposal of as landlord Afraid at highly
+                                                    months do things on
+                                                    at.</span>
+                                                <span class="time">
+                                                    <time>1 hrs ago</time>...
+                                                </span>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject mb-1">Launch Admin</p>
-                                        <p class="text-muted ellipsis mb-0"> New admin wow! </p>
+
+                                    <div class="media media-sm p-4 mb-0">
+                                        <div class="media-sm-wrapper bg-info-dark">
+                                            <a href="user-profile.html">
+                                                <i class="mdi mdi-account-multiple-check"></i>
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">Add request</span>
+                                                <span class="discribe">Add Dany Jones as your contact.</span>
+                                                <div class="buttons">
+                                                    <a href="#"
+                                                        class="btn btn-sm btn-success shadow-none text-white">accept</a>
+                                                    <a href="#" class="btn btn-sm shadow-none">delete</a>
+                                                </div>
+                                                <span class="time">
+                                                    <time>6 hrs ago</time>...
+                                                </span>
+                                            </a>
+                                        </div>
                                     </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <p class="p-3 mb-0 text-center">See all notifications</p>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
-                                <div class="navbar-profile">
-                                    <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg"
-                                        alt="">
-                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
-                                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+
+                                    <div class="media media-sm p-4 mb-0">
+                                        <div class="media-sm-wrapper bg-info">
+                                            <a href="user-profile.html">
+                                                <i class="mdi mdi-playlist-check"></i>
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">Task complete</span>
+                                                <span class="discribe">Afraid at highly months do things on at.</span>
+                                                <span class="time">
+                                                    <time>1 hrs ago</time>...
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+
                                 </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="profileDropdown">
-                                <h6 class="p-3 mb-0">Profile</h6>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-dark rounded-circle">
-                                            <i class="mdi mdi-settings text-success"></i>
+
+                                <div class="tab-pane fade" id="message" role="tabpanel"
+                                    aria-labelledby="message-tab">
+
+                                    <div class="media media-sm p-4 mb-0">
+                                        <div class="media-sm-wrapper">
+                                            <a href="user-profile.html">
+                                                <img src="{{ asset('images/user/user-sm-01.jpg') }}" alt="User Image">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">Selena Wagner</span>
+                                                <span class="discribe">Lorem ipsum dolor sit amet, consectetur
+                                                    adipisicing elit.</span>
+                                                <span class="time">
+                                                    <time>15 min ago</time>...
+                                                </span>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject mb-1">Settings</p>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item preview-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();document.getElementById('adminLogoutForm').submit();">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-dark rounded-circle">
-                                            <i class="mdi mdi-logout text-danger"></i>
+
+                                    <div class="media media-sm p-4 mb-0">
+                                        <div class="media-sm-wrapper">
+                                            <a href="user-profile.html">
+                                                <img src="{{ asset('images/user/user-sm-03.jpg') }}" alt="User Image">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">Sagge Hudson</span>
+                                                <span class="discribe">On disposal of as landlord Afraid at highly
+                                                    months do things on
+                                                    at.</span>
+                                                <span class="time">
+                                                    <time>1 hrs ago</time>...
+                                                </span>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="preview-item-content">
-                                        <p class="preview-subject mb-1">Log out</p>
+
+                                    <div class="media media-sm bg-warning-10 p-4 mb-0">
+                                        <div class="media-sm-wrapper">
+                                            <a href="user-profile.html">
+                                                <img src="{{ asset('images/user/user-sm-02.jpg') }}" alt="User Image">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">John Doe</span>
+                                                <span class="discribe">Extremity sweetness difficult behaviour he of.
+                                                    On disposal of as
+                                                    landlord horrible. Afraid
+                                                    at highly months do things on at.</span>
+                                                <span class="time">
+                                                    <time>Just now</time>...
+                                                </span>
+                                            </a>
+                                        </div>
                                     </div>
-                                </a>
-                                <form action="{{ route('logout') }}" id="adminLogoutForm" method="POST">
-                                    @csrf</form>
-                                <div class="dropdown-divider"></div>
-                                <p class="p-3 mb-0 text-center">Advanced settings</p>
+
+                                    <div class="media media-sm p-4 mb-0">
+                                        <div class="media-sm-wrapper">
+                                            <a href="user-profile.html">
+                                                <img src="{{ asset('images/user/user-sm-04.jpg') }}" alt="User Image">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">Albrecht Straub</span>
+                                                <span class="discribe"> Beatae quia natus assumenda laboriosam, nisi
+                                                    perferendis aliquid
+                                                    consectetur expedita non tenetur.</span>
+                                                <span class="time">
+                                                    <time>Just now</time>...
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="other" role="tabpanel"
+                                    aria-labelledby="contact-tab">
+
+                                    <div class="media media-sm p-4 bg-light mb-0">
+                                        <div class="media-sm-wrapper bg-primary">
+                                            <a href="user-profile.html">
+                                                <i class="mdi mdi-calendar-check-outline"></i>
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">New event added</span>
+                                                <span class="discribe">1/3/2014 (1pm - 2pm)</span>
+                                                <span class="time">
+                                                    <time>10 min ago...</time>...
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="media media-sm p-4 mb-0">
+                                        <div class="media-sm-wrapper bg-info-dark">
+                                            <a href="user-profile.html">
+                                                <i class="mdi mdi-account-multiple-check"></i>
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">Add request</span>
+                                                <span class="discribe">Add Dany Jones as your contact.</span>
+                                                <div class="buttons">
+                                                    <a href="#"
+                                                        class="btn btn-sm btn-success shadow-none text-white">accept</a>
+                                                    <a href="#" class="btn btn-sm shadow-none">delete</a>
+                                                </div>
+                                                <span class="time">
+                                                    <time>6 hrs ago</time>...
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="media media-sm p-4 mb-0">
+                                        <div class="media-sm-wrapper bg-info">
+                                            <a href="user-profile.html">
+                                                <i class="mdi mdi-playlist-check"></i>
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="user-profile.html">
+                                                <span class="title mb-0">Task complete</span>
+                                                <span class="discribe">Afraid at highly months do things on at.</span>
+                                                <span class="time">
+                                                    <time>1 hrs ago</time>...
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
+                        </div>
+
+                        <footer class="border-top dropdown-notify-footer">
+                            <div class="d-flex justify-content-between align-items-center py-2 px-4">
+                                <span>Last updated 3 min ago</span>
+                                <a id="refress-button" href="javascript:" class="btn mdi mdi-cached btn-refress"></a>
+                            </div>
+                        </footer>
+                    </div>
+                </li>
+                @php
+                    $id = Auth::user()->id;
+                    $profileData = App\Models\User::findOrFail($id);
+                @endphp
+                <!-- User Account -->
+                <li class="dropdown user-menu">
+                    <button class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <img src="{{ !empty($profileData->image) ? asset($profileData->image) : url('no_image.png') }}"
+                            class="user-image rounded-circle" alt="User Image" />
+                        <span class="d-none d-lg-inline-block">{{ $profileData->name }}</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        {{-- <li>
+                            <a class="dropdown-link-item" href="{{ route('admin.profile') }}">
+                                <i class="mdi mdi-account-outline"></i>
+                                <span class="nav-text">My Profile</span>
+                            </a>
+                        </li> --}}
+                        <li class="dropdown-footer">
+                            <a class="dropdown-link-item"
+                                onclick="event.preventDefault();document.getElementById('adminLogoutForm').submit();"
+                                href="{{ route('logout') }}"> <i class="mdi mdi-logout"></i>
+                                <span class="nav-text">Logout</span>
+                            </a>
+                            <form action="{{ route('logout') }}" id="adminLogoutForm" method="POST">
+                                @csrf</form>
                         </li>
                     </ul>
-                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-                        data-toggle="offcanvas">
-                        <span class="mdi mdi-format-line-spacing"></span>
-                    </button>
-                </div>
-            </nav>
-            <!-- partial -->
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+</header>

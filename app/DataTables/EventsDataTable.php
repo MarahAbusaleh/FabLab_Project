@@ -24,10 +24,16 @@ class EventsDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($query) {
-                $editBtn = "<a href='" . route('events.edit', $query->id) . " 'class='btn btn-primary mr-2 py-2'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='" . route('events.destroy', $query->id) . "' class='btn btn-danger delete-item py-2'><i class='fas fa-trash-alt'></i></a>";
-                return $editBtn . $deleteBtn;
+                $btns = "<div class='btn-group mr-3 mb-4' role='group' aria-label='Basic example'>
+                    <a href='" . route('events.edit', $query->id) . "' type='button' class='btn btn-primary'><i class='far fa-edit'></i></a>
+                    <a href='" . route('events.destroy', $query->id) . "' type='button' class='btn btn-danger delete-item'><i class='fas fa-trash-alt'></i></a>
+                </div>";
+                return $btns;
             })
+            ->addColumn('image', function ($query) {
+                return $img = "<img width='80px' src='" . asset($query->image) . "'></img>";
+            })
+            ->rawColumns(['image', 'action'])
             ->setRowId('id');
     }
 
@@ -53,7 +59,7 @@ class EventsDataTable extends DataTable
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
-            ->orderBy(1)
+            ->orderBy(0)
             ->selectStyleSingle()
             ->buttons([
                 Button::make('excel'),

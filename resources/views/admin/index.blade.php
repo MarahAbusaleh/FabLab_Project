@@ -1,437 +1,882 @@
 @extends('admin.layouts.master')
 @section('content')
-    <div class="main-panel">
-        <div class="content-wrapper">
+    <!-- ====================================
+                ——— CONTENT WRAPPER
+                ===================================== -->
+    <div class="content-wrapper">
+        <div class="content">
+            <!-- Top Statistics -->
             <div class="row">
-                <div class="col-12 grid-margin stretch-card">
-                    <div class="card corona-gradient-card">
-                        <div class="card-body py-0 px-0 px-sm-3">
-                            <div class="row align-items-center">
-                                <div class="col-4 col-sm-3 col-xl-2">
-                                    <img src="assets/images/dashboard/Group126@2x.png" class="gradient-corona-img img-fluid"
-                                        alt="">
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card card-default card-mini">
+                        <div class="card-header">
+                            <h2>$18,699</h2>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
-                                <div class="col-5 col-sm-7 col-xl-8 p-0">
-                                    <h4 class="mb-1 mb-sm-0">Want even more features?</h4>
-                                    <p class="mb-0 font-weight-normal d-none d-sm-block">Check out our Pro
-                                        version with 5 unique layouts!</p>
+                            </div>
+                            <div class="sub-title">
+                                <span class="mr-1">Sales of this year</span> |
+                                <span class="mx-1">45%</span>
+                                <i class="mdi mdi-arrow-up-bold text-success"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-wrapper">
+                                <div>
+                                    <div id="spline-area-1"></div>
                                 </div>
-                                <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
-                                    <span>
-                                        <a href="https://www.bootstrapdash.com/product/corona-admin-template/"
-                                            target="_blank"
-                                            class="btn btn-outline-light btn-rounded get-started-btn">Upgrade
-                                            to PRO</a>
-                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card card-default card-mini">
+                        <div class="card-header">
+                            <h2>$14,500</h2>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                            <div class="sub-title">
+                                <span class="mr-1">Expense of this year</span> |
+                                <span class="mx-1">50%</span>
+                                <i class="mdi mdi-arrow-down-bold text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-wrapper">
+                                <div>
+                                    <div id="spline-area-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card card-default card-mini">
+                        <div class="card-header">
+                            <h2>$4199</h2>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                            <div class="sub-title">
+                                <span class="mr-1">Profit of this year</span> |
+                                <span class="mx-1">20%</span>
+                                <i class="mdi mdi-arrow-down-bold text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-wrapper">
+                                <div>
+                                    <div id="spline-area-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card card-default card-mini">
+                        <div class="card-header">
+                            <h2>$20,199</h2>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                            <div class="sub-title">
+                                <span class="mr-1">Revenue of this year</span> |
+                                <span class="mx-1">35%</span>
+                                <i class="mdi mdi-arrow-up-bold text-success"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-wrapper">
+                                <div>
+                                    <div id="spline-area-4"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
             <div class="row">
-                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="d-flex align-items-center align-self-start">
-                                        <h3 class="mb-0">$12.34</h3>
-                                        <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="icon icon-box-success ">
-                                        <span class="mdi mdi-arrow-top-right icon-item"></span>
-                                    </div>
+                <div class="col-xl-8">
+
+                    <!-- Income and Express -->
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h2>Income And Expenses</h2>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false" data-display="static">
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
                             </div>
-                            <h6 class="text-muted font-weight-normal">Potential growth</h6>
+
                         </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div class="card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="d-flex align-items-center align-self-start">
-                                        <h3 class="mb-0">$17.34</h3>
-                                        <p class="text-success ml-2 mb-0 font-weight-medium">+11%</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="icon icon-box-success">
-                                        <span class="mdi mdi-arrow-top-right icon-item"></span>
-                                    </div>
-                                </div>
+                            <div class="chart-wrapper">
+                                <div id="mixed-chart-1"></div>
                             </div>
-                            <h6 class="text-muted font-weight-normal">Revenue current</h6>
                         </div>
+
                     </div>
+
+
                 </div>
-                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="d-flex align-items-center align-self-start">
-                                        <h3 class="mb-0">$12.34</h3>
-                                        <p class="text-danger ml-2 mb-0 font-weight-medium">-2.4%</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="icon icon-box-danger">
-                                        <span class="mdi mdi-arrow-bottom-left icon-item"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6 class="text-muted font-weight-normal">Daily Income</h6>
+                <div class="col-xl-4">
+                    <!-- Current Users  -->
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h2>Current Users</h2>
+                            <span>Realtime</span>
                         </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div class="card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="d-flex align-items-center align-self-start">
-                                        <h3 class="mb-0">$31.53</h3>
-                                        <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="icon icon-box-success ">
-                                        <span class="mdi mdi-arrow-top-right icon-item"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6 class="text-muted font-weight-normal">Expense current</h6>
+                            <div id="barchartlg2"></div>
+                        </div>
+                        <div class="card-footer bg-white py-4">
+                            <a href="#" class="text-uppercase">Current Users Overview</a>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
+            <!-- Table Product -->
             <div class="row">
-                <div class="col-md-4 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Transaction History</h4>
-                            <canvas id="transaction-history" class="transaction-chart"></canvas>
-                            <div
-                                class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                                <div class="text-md-center text-xl-left">
-                                    <h6 class="mb-1">Transfer to Paypal</h6>
-                                    <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-                                </div>
-                                <div
-                                    class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                                    <h6 class="font-weight-bold mb-0">$236</h6>
-                                </div>
-                            </div>
-                            <div
-                                class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                                <div class="text-md-center text-xl-left">
-                                    <h6 class="mb-1">Tranfer to Stripe</h6>
-                                    <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-                                </div>
-                                <div
-                                    class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                                    <h6 class="font-weight-bold mb-0">$593</h6>
+                <div class="col-12">
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h2>Products Inventory</h2>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Yearly Chart
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-8 grid-margin stretch-card">
-                    <div class="card">
                         <div class="card-body">
-                            <div class="d-flex flex-row justify-content-between">
-                                <h4 class="card-title mb-1">Open Projects</h4>
-                                <p class="text-muted mb-1">Your data status</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="preview-list">
-                                        <div class="preview-item border-bottom">
-                                            <div class="preview-thumbnail">
-                                                <div class="preview-icon bg-primary">
-                                                    <i class="mdi mdi-file-document"></i>
+                            <table id="productsTable" class="table table-hover table-product" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Product Name</th>
+                                        <th>ID</th>
+                                        <th>Qty</th>
+                                        <th>Variants</th>
+                                        <th>Committed</th>
+                                        <th>Daily Sale</th>
+                                        <th>Sold</th>
+                                        <th>In Stock</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-01.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Coach Swagger</td>
+                                        <td>24541</td>
+                                        <td>27</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>
+                                            <div id="tbl-chart-01"></div>
+                                        </td>
+                                        <td>4</td>
+                                        <td>18</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
                                                 </div>
                                             </div>
-                                            <div class="preview-item-content d-sm-flex flex-grow">
-                                                <div class="flex-grow">
-                                                    <h6 class="preview-subject">Admin dashboard design</h6>
-                                                    <p class="text-muted mb-0">Broadcast web app mockup</p>
-                                                </div>
-                                                <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                                    <p class="text-muted">15 minutes ago</p>
-                                                    <p class="text-muted mb-0">30 tasks, 5 issues </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="preview-item border-bottom">
-                                            <div class="preview-thumbnail">
-                                                <div class="preview-icon bg-success">
-                                                    <i class="mdi mdi-cloud-download"></i>
-                                                </div>
-                                            </div>
-                                            <div class="preview-item-content d-sm-flex flex-grow">
-                                                <div class="flex-grow">
-                                                    <h6 class="preview-subject">Wordpress Development</h6>
-                                                    <p class="text-muted mb-0">Upload new design</p>
-                                                </div>
-                                                <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                                    <p class="text-muted">1 hour ago</p>
-                                                    <p class="text-muted mb-0">23 tasks, 5 issues </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="preview-item border-bottom">
-                                            <div class="preview-thumbnail">
-                                                <div class="preview-icon bg-info">
-                                                    <i class="mdi mdi-clock"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-02.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Toddler Shoes, Gucci Watch</td>
+                                        <td>24542</td>
+                                        <td>18</td>
+                                        <td>7</td>
+                                        <td>5</td>
+                                        <td>
+                                            <div id="tbl-chart-02"></div>
+                                        </td>
+                                        <td>1</td>
+                                        <td>14</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
                                                 </div>
                                             </div>
-                                            <div class="preview-item-content d-sm-flex flex-grow">
-                                                <div class="flex-grow">
-                                                    <h6 class="preview-subject">Project meeting</h6>
-                                                    <p class="text-muted mb-0">New project discussion</p>
-                                                </div>
-                                                <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                                    <p class="text-muted">35 minutes ago</p>
-                                                    <p class="text-muted mb-0">15 tasks, 2 issues</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="preview-item border-bottom">
-                                            <div class="preview-thumbnail">
-                                                <div class="preview-icon bg-danger">
-                                                    <i class="mdi mdi-email-open"></i>
-                                                </div>
-                                            </div>
-                                            <div class="preview-item-content d-sm-flex flex-grow">
-                                                <div class="flex-grow">
-                                                    <h6 class="preview-subject">Broadcast Mail</h6>
-                                                    <p class="text-muted mb-0">Sent release details to team</p>
-                                                </div>
-                                                <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                                    <p class="text-muted">55 minutes ago</p>
-                                                    <p class="text-muted mb-0">35 tasks, 7 issues </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="preview-item">
-                                            <div class="preview-thumbnail">
-                                                <div class="preview-icon bg-warning">
-                                                    <i class="mdi mdi-chart-pie"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-03.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Hat Black Suits</td>
+                                        <td>24543</td>
+                                        <td>20</td>
+                                        <td>3</td>
+                                        <td>7</td>
+                                        <td>
+                                            <div id="tbl-chart-03"></div>
+                                        </td>
+                                        <td>6</td>
+                                        <td>26</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
                                                 </div>
                                             </div>
-                                            <div class="preview-item-content d-sm-flex flex-grow">
-                                                <div class="flex-grow">
-                                                    <h6 class="preview-subject">UI Design</h6>
-                                                    <p class="text-muted mb-0">New application planning</p>
-                                                </div>
-                                                <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                                    <p class="text-muted">50 minutes ago</p>
-                                                    <p class="text-muted mb-0">27 tasks, 4 issues </p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-04.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Backpack Gents</td>
+                                        <td>24544</td>
+                                        <td>37</td>
+                                        <td>8</td>
+                                        <td>3</td>
+                                        <td>
+                                            <div id="tbl-chart-04"></div>
+                                        </td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-05.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Speed 500 Ignite</td>
+                                        <td>24545</td>
+                                        <td>8</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>
+                                            <div id="tbl-chart-05"></div>
+                                        </td>
+                                        <td>8</td>
+                                        <td>42</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-06.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Olay</td>
+                                        <td>24546</td>
+                                        <td>19</td>
+                                        <td>6</td>
+                                        <td>6</td>
+                                        <td>
+                                            <div id="tbl-chart-06"></div>
+                                        </td>
+                                        <td>79</td>
+                                        <td>12</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-07.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Ledger Nano X</td>
+                                        <td>24547</td>
+                                        <td>61</td>
+                                        <td>46</td>
+                                        <td>18</td>
+                                        <td>
+                                            <div id="tbl-chart-07"></div>
+                                        </td>
+                                        <td>76</td>
+                                        <td>36</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-08.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Surface Laptop 2</td>
+                                        <td>24548</td>
+                                        <td>33</td>
+                                        <td>56</td>
+                                        <td>89</td>
+                                        <td>
+                                            <div id="tbl-chart-08"></div>
+                                        </td>
+                                        <td>38</td>
+                                        <td>5</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-09.jpg" alt="Product Image">
+                                        </td>
+                                        <td>TIGI Bed Head Superstar Queen</td>
+                                        <td>24549</td>
+                                        <td>3</td>
+                                        <td>9</td>
+                                        <td>15</td>
+                                        <td>
+                                            <div id="tbl-chart-09"></div>
+                                        </td>
+                                        <td>6</td>
+                                        <td>46</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-10.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Wattbike Atom</td>
+                                        <td>24550</td>
+                                        <td>61</td>
+                                        <td>56</td>
+                                        <td>68</td>
+                                        <td>
+                                            <div id="tbl-chart-10"></div>
+                                        </td>
+                                        <td>3</td>
+                                        <td>19</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-11.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Smart Watch</td>
+                                        <td>24551</td>
+                                        <td>19</td>
+                                        <td>76</td>
+                                        <td>38</td>
+                                        <td>
+                                            <div id="tbl-chart-11"></div>
+                                        </td>
+                                        <td>3</td>
+                                        <td>17</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-12.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Magic Bullet Blender</td>
+                                        <td>24552</td>
+                                        <td>12</td>
+                                        <td>30</td>
+                                        <td>14</td>
+                                        <td>
+                                            <div id="tbl-chart-12"></div>
+                                        </td>
+                                        <td>26</td>
+                                        <td>9</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-13.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Kanana rucksack</td>
+                                        <td>24553</td>
+                                        <td>14</td>
+                                        <td>65</td>
+                                        <td>39</td>
+                                        <td>
+                                            <div id="tbl-chart-13"></div>
+                                        </td>
+                                        <td>9</td>
+                                        <td>55</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-14.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Copic Opaque White</td>
+                                        <td>24554</td>
+                                        <td>43</td>
+                                        <td>29</td>
+                                        <td>75</td>
+                                        <td>
+                                            <div id="tbl-chart-14"></div>
+                                        </td>
+                                        <td>7</td>
+                                        <td>15</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-15.jpg" alt="Product Image">
+                                        </td>
+                                        <td>Headphones</td>
+                                        <td>24555</td>
+                                        <td>17</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>
+                                            <div id="tbl-chart-15"></div>
+                                        </td>
+                                        <td>6</td>
+                                        <td>98</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>
             </div>
+
+
             <div class="row">
-                <div class="col-sm-4 grid-margin">
-                    <div class="card">
+                <div class="col-xl-4">
+                    <!-- Top Customers -->
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h2>Top Customers</h2>
+                        </div>
                         <div class="card-body">
-                            <h5>Revenue</h5>
-                            <div class="row">
-                                <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                    <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                        <h2 class="mb-0">$32123</h2>
-                                        <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
-                                    </div>
-                                    <h6 class="text-muted font-weight-normal">11.38% Since last month</h6>
-                                </div>
-                                <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                    <i class="icon-lg mdi mdi-codepen text-primary ml-auto"></i>
-                                </div>
-                            </div>
+                            <table class="table table-borderless table-thead-border">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th class="text-right">Income</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-dark font-weight-bold">Gunter Reich</td>
+                                        <td class="text-right">$2,560</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-dark font-weight-bold">Anke Kirsch</td>
+                                        <td class="text-right">$1,720</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-dark font-weight-bold">Karolina Beer</td>
+                                        <td class="text-right">$1,230</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-dark font-weight-bold">Lucia Christ</td>
+                                        <td class="text-right">$875</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="border-top">
+                                    <tr>
+                                        <td><a href="#" class="text-uppercase">See All</a></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
+
                 </div>
-                <div class="col-sm-4 grid-margin">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5>Sales</h5>
-                            <div class="row">
-                                <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                    <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                        <h2 class="mb-0">$45850</h2>
-                                        <p class="text-success ml-2 mb-0 font-weight-medium">+8.3%</p>
-                                    </div>
-                                    <h6 class="text-muted font-weight-normal"> 9.61% Since last month</h6>
-                                </div>
-                                <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                    <i class="icon-lg mdi mdi-wallet-travel text-danger ml-auto"></i>
-                                </div>
+                <div class="col-xl-8">
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h2>Sales by Country</h2>
+                            <div id="country-sales-range" class="date-range">
+                                <i class="mdi mdi-calendar"></i>&nbsp;
+                                <span class="date-holder"></span>
+                                <i class="mdi mdi-menu-down"></i>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 grid-margin">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5>Purchase</h5>
-                            <div class="row">
-                                <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                    <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                        <h2 class="mb-0">$2039</h2>
-                                        <p class="text-danger ml-2 mb-0 font-weight-medium">-2.1% </p>
+                        <div class="card-body py-0">
+                            <div class="row pb-4">
+                                <div class="col-lg-7 border-right-lg">
+                                    <div class="vec-map-wrapper">
+                                        <div id="home-world" style="height: 100%; width: 100%;"></div>
                                     </div>
-                                    <h6 class="text-muted font-weight-normal">2.27% Since last month</h6>
                                 </div>
-                                <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                    <i class="icon-lg mdi mdi-monitor text-success ml-auto"></i>
+                                <div class="col-lg-5">
+                                    <div class="chart-wrapper">
+                                        <div id="horizontal-bar-chart"></div>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row ">
-                <div class="col-12 grid-margin">
-                    <div class="card">
+
+            <div class="row">
+                <div class="col-xl-8">
+
+                    <!-- Sales by Product -->
+                    <div class="card card-default">
+                        <div class="card-header align-items-center">
+                            <h2 class="">Sales by Product</h2>
+                            <a href="#" class="btn btn-primary btn-pill" data-toggle="modal"
+                                data-target="#modal-stock">Add
+                                Stock</a>
+                        </div>
                         <div class="card-body">
-                            <h4 class="card-title">Order Status</h4>
-                            <div class="table-responsive">
-                                <table class="table">
+                            <div class="tab-content">
+                                <table id="product-sale" class="table table-product " style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>
-                                                <div class="form-check form-check-muted m-0">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input">
-                                                    </label>
-                                                </div>
-                                            </th>
-                                            <th> Client Name </th>
-                                            <th> Order No </th>
-                                            <th> Product Cost </th>
-                                            <th> Project </th>
-                                            <th> Payment Mode </th>
-                                            <th> Start Date </th>
-                                            <th> Payment Status </th>
+                                            <th>Product Name</th>
+                                            <th>Unit</th>
+                                            <th>Amount</th>
+                                            <th>%sold</th>
+                                            <th class="th-width-250"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
+
                                         <tr>
+                                            <td>Coach Swagger</td>
+                                            <td>134</td>
+                                            <td>$24541</td>
+                                            <td>35.28%</td>
                                             <td>
-                                                <div class="form-check form-check-muted m-0">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input">
-                                                    </label>
+                                                <div class="progress progress-md rounded-0">
+                                                    <div class="progress-bar" role="progressbar" style="width: 70%"
+                                                        aria-valuenow="70%" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <img src="assets/images/faces/face1.jpg" alt="image" />
-                                                <span class="pl-2">Henry Klein</span>
-                                            </td>
-                                            <td> 02312 </td>
-                                            <td> $14,500 </td>
-                                            <td> Dashboard </td>
-                                            <td> Credit card </td>
-                                            <td> 04 Dec 2019 </td>
-                                            <td>
-                                                <div class="badge badge-outline-success">Approved</div>
                                             </td>
                                         </tr>
+
                                         <tr>
+                                            <td>Toddler Shoes</td>
+                                            <td>119</td>
+                                            <td>$20225</td>
+                                            <td>27.05%</td>
                                             <td>
-                                                <div class="form-check form-check-muted m-0">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input">
-                                                    </label>
+                                                <div class="progress progress-md rounded-0">
+                                                    <div class="progress-bar" role="progressbar" style="width: 55%"
+                                                        aria-valuenow="55%" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <img src="assets/images/faces/face2.jpg" alt="image" />
-                                                <span class="pl-2">Estella Bryan</span>
-                                            </td>
-                                            <td> 02312 </td>
-                                            <td> $14,500 </td>
-                                            <td> Website </td>
-                                            <td> Cash on delivered </td>
-                                            <td> 04 Dec 2019 </td>
-                                            <td>
-                                                <div class="badge badge-outline-warning">Pending</div>
                                             </td>
                                         </tr>
+
                                         <tr>
+                                            <td>Hat Black Suits</td>
+                                            <td>101</td>
+                                            <td>$17,290</td>
+                                            <td>20.25%</td>
                                             <td>
-                                                <div class="form-check form-check-muted m-0">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input">
-                                                    </label>
+                                                <div class="progress progress-md rounded-0">
+                                                    <div class="progress-bar" role="progressbar" style="width: 45%"
+                                                        aria-valuenow="45%" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <img src="assets/images/faces/face5.jpg" alt="image" />
-                                                <span class="pl-2">Lucy Abbott</span>
-                                            </td>
-                                            <td> 02312 </td>
-                                            <td> $14,500 </td>
-                                            <td> App design </td>
-                                            <td> Credit card </td>
-                                            <td> 04 Dec 2019 </td>
-                                            <td>
-                                                <div class="badge badge-outline-danger">Rejected</div>
                                             </td>
                                         </tr>
+
                                         <tr>
+                                            <td>Backpack Gents</td>
+                                            <td>59</td>
+                                            <td>$1150</td>
+                                            <td>12.50%</td>
                                             <td>
-                                                <div class="form-check form-check-muted m-0">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input">
-                                                    </label>
+                                                <div class="progress progress-md rounded-0">
+                                                    <div class="progress-bar" role="progressbar" style="width: 25%"
+                                                        aria-valuenow="25%" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <img src="assets/images/faces/face3.jpg" alt="image" />
-                                                <span class="pl-2">Peter Gill</span>
-                                            </td>
-                                            <td> 02312 </td>
-                                            <td> $14,500 </td>
-                                            <td> Development </td>
-                                            <td> Online Payment </td>
-                                            <td> 04 Dec 2019 </td>
-                                            <td>
-                                                <div class="badge badge-outline-success">Approved</div>
                                             </td>
                                         </tr>
+
                                         <tr>
+                                            <td>Speed 500 Ignite</td>
+                                            <td>25</td>
+                                            <td>$590</td>
+                                            <td>02.10%</td>
                                             <td>
-                                                <div class="form-check form-check-muted m-0">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input">
-                                                    </label>
+                                                <div class="progress progress-md rounded-0">
+                                                    <div class="progress-bar" role="progressbar" style="width: 10%"
+                                                        aria-valuenow="10%" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Earphone & Headphone</td>
+                                            <td>23</td>
+                                            <td>$450</td>
+                                            <td>02%</td>
                                             <td>
-                                                <img src="assets/images/faces/face4.jpg" alt="image" />
-                                                <span class="pl-2">Sallie Reyes</span>
+                                                <div class="progress progress-md rounded-0">
+                                                    <div class="progress-bar" role="progressbar" style="width: 8%"
+                                                        aria-valuenow="8%" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
                                             </td>
-                                            <td> 02312 </td>
-                                            <td> $14,500 </td>
-                                            <td> Website </td>
-                                            <td> Credit card </td>
-                                            <td> 04 Dec 2019 </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Gucci Watch</td>
+                                            <td>32</td>
+                                            <td>$554</td>
+                                            <td>8%</td>
                                             <td>
-                                                <div class="badge badge-outline-success">Approved</div>
+                                                <div class="progress progress-md rounded-0">
+                                                    <div class="progress-bar" role="progressbar" style="width: 8%"
+                                                        aria-valuenow="8%" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -439,259 +884,268 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-xl-4 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex flex-row justify-content-between">
-                                <h4 class="card-title">Messages</h4>
-                                <p class="text-muted mb-1 small">View all</p>
-                            </div>
-                            <div class="preview-list">
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face6.jpg" alt="image" class="rounded-circle" />
-                                    </div>
-                                    <div class="preview-item-content d-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                <h6 class="preview-subject">Leonard</h6>
-                                                <p class="text-muted text-small">5 minutes ago</p>
-                                            </div>
-                                            <p class="text-muted">Well, it seems to be working now.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face8.jpg" alt="image" class="rounded-circle" />
-                                    </div>
-                                    <div class="preview-item-content d-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                <h6 class="preview-subject">Luella Mills</h6>
-                                                <p class="text-muted text-small">10 Minutes Ago</p>
-                                            </div>
-                                            <p class="text-muted">Well, it seems to be working now.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face9.jpg" alt="image" class="rounded-circle" />
-                                    </div>
-                                    <div class="preview-item-content d-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                <h6 class="preview-subject">Ethel Kelly</h6>
-                                                <p class="text-muted text-small">2 Hours Ago</p>
-                                            </div>
-                                            <p class="text-muted">Please review the tickets</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face11.jpg" alt="image"
-                                            class="rounded-circle" />
-                                    </div>
-                                    <div class="preview-item-content d-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                <h6 class="preview-subject">Herman May</h6>
-                                                <p class="text-muted text-small">4 Hours Ago</p>
-                                            </div>
-                                            <p class="text-muted">Thanks a lot. It was easy to fix it .</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Portfolio Slide</h4>
-                            <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel"
-                                id="owl-carousel-basic">
-                                <div class="item">
-                                    <img src="assets/images/dashboard/Rectangle.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="assets/images/dashboard/Img_5.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="assets/images/dashboard/img_6.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="d-flex py-4">
-                                <div class="preview-list w-100">
-                                    <div class="preview-item p-0">
-                                        <div class="preview-thumbnail">
-                                            <img src="assets/images/faces/face12.jpg" class="rounded-circle"
-                                                alt="">
-                                        </div>
-                                        <div class="preview-item-content d-flex flex-grow">
-                                            <div class="flex-grow">
-                                                <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                    <h6 class="preview-subject">CeeCee Bass</h6>
-                                                    <p class="text-muted text-small">4 Hours Ago</p>
-                                                </div>
-                                                <p class="text-muted">Well, it seems to be working now.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="text-muted">Well, it seems to be working now. </p>
-                            <div class="progress progress-md portfolio-progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 50%"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-xl-4 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">To do list</h4>
-                            <div class="add-items d-flex">
-                                <input type="text" class="form-control todo-list-input" placeholder="enter task..">
-                                <button class="add btn btn-primary todo-list-add-btn">Add</button>
-                            </div>
-                            <div class="list-wrapper">
-                                <ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom">
+                <div class="col-xl-4">
+
+                    <!-- Chat -->
+                    <div class="card card-default chat">
+                        <div class="card-header">
+                            <h2>Selena Wagner</h2>
+                            <div class="dropdown dropdown-chat-state">
+                                <button class="dropdown-toggle btn btn-primary btn-rounded-circle" type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false" data-display="static">
+                                    <i class="mdi mdi-account-alert"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <li>
-                                        <div class="form-check form-check-primary">
-                                            <label class="form-check-label">
-                                                <input class="checkbox" type="checkbox"> Create invoice
-                                            </label>
-                                        </div>
-                                        <i class="remove mdi mdi-close-box"></i>
+                                        <a href="#" class="user-link">
+                                            <img src="images/user/user-sm-01.jpg" alt="User Image">
+                                            <span class="username">anna patuary
+                                                <span class="badge badge-secondary">18</span>
+                                            </span>
+                                            <span class="state active">
+                                                <i class="mdi mdi-circle-medium"></i>
+                                            </span>
+                                        </a>
                                     </li>
                                     <li>
-                                        <div class="form-check form-check-primary">
-                                            <label class="form-check-label">
-                                                <input class="checkbox" type="checkbox"> Meeting with Alita
-                                            </label>
-                                        </div>
-                                        <i class="remove mdi mdi-close-box"></i>
-                                    </li>
-                                    <li class="completed">
-                                        <div class="form-check form-check-primary">
-                                            <label class="form-check-label">
-                                                <input class="checkbox" type="checkbox" checked> Prepare for
-                                                presentation </label>
-                                        </div>
-                                        <i class="remove mdi mdi-close-box"></i>
+                                        <a href="#" class="user-link">
+                                            <img src="images/user/user-sm-02.jpg" alt="User Image">
+                                            <span class="username">riman Ghose
+                                                <span class="badge badge-secondary">18</span>
+                                            </span>
+                                            <span class="state">
+                                                1hrs
+                                            </span>
+                                        </a>
                                     </li>
                                     <li>
-                                        <div class="form-check form-check-primary">
-                                            <label class="form-check-label">
-                                                <input class="checkbox" type="checkbox"> Plan weekend outing
-                                            </label>
-                                        </div>
-                                        <i class="remove mdi mdi-close-box"></i>
+                                        <a href="#" class="user-link">
+                                            <img src="images/user/user-sm-03.jpg" alt="User Image">
+                                            <span class="username">riman Ghose
+                                                <span class="badge badge-secondary">18</span>
+                                            </span>
+                                            <span class="state">
+                                                1hrs
+                                            </span>
+                                        </a>
                                     </li>
                                     <li>
-                                        <div class="form-check form-check-primary">
-                                            <label class="form-check-label">
-                                                <input class="checkbox" type="checkbox"> Pick up kids from
-                                                school </label>
-                                        </div>
-                                        <i class="remove mdi mdi-close-box"></i>
+                                        <a href="#" class="user-link">
+                                            <img src="images/user/user-sm-04.jpg" alt="User Image">
+                                            <span class="username">riman Ghose
+                                                <span class="badge badge-secondary">18</span>
+                                            </span>
+                                            <span class="state">
+                                                1hrs
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="user-link">
+                                            <img src="images/user/user-sm-05.jpg" alt="User Image">
+                                            <span class="username">riman Ghose</span>
+                                            <span class="state">15min</span>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Visitors by Countries</h4>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <i class="flag-icon flag-icon-us"></i>
-                                                    </td>
-                                                    <td>USA</td>
-                                                    <td class="text-right"> 1500 </td>
-                                                    <td class="text-right font-weight-medium"> 56.35% </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <i class="flag-icon flag-icon-de"></i>
-                                                    </td>
-                                                    <td>Germany</td>
-                                                    <td class="text-right"> 800 </td>
-                                                    <td class="text-right font-weight-medium"> 33.25% </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <i class="flag-icon flag-icon-au"></i>
-                                                    </td>
-                                                    <td>Australia</td>
-                                                    <td class="text-right"> 760 </td>
-                                                    <td class="text-right font-weight-medium"> 15.45% </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <i class="flag-icon flag-icon-gb"></i>
-                                                    </td>
-                                                    <td>United Kingdom</td>
-                                                    <td class="text-right"> 450 </td>
-                                                    <td class="text-right font-weight-medium"> 25.00% </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <i class="flag-icon flag-icon-ro"></i>
-                                                    </td>
-                                                    <td>Romania</td>
-                                                    <td class="text-right"> 620 </td>
-                                                    <td class="text-right font-weight-medium"> 10.25% </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <i class="flag-icon flag-icon-br"></i>
-                                                    </td>
-                                                    <td>Brasil</td>
-                                                    <td class="text-right"> 230 </td>
-                                                    <td class="text-right font-weight-medium"> 75.00% </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                        <div class="card-body pb-0" data-simplebar style="height: 363px;">
+                            <!-- Media Chat Left -->
+                            <div class="media media-chat">
+                                <img src="images/user/user-sm-01.jpg" class="rounded-circle" alt="Avata Image">
+                                <div class="media-body">
+                                    <div class="text-content">
+                                        <span class="message">Hello my name is anna.</span>
+                                        <time class="time">5 mins ago</time>
                                     </div>
                                 </div>
-                                <div class="col-md-7">
-                                    <div id="audience-map" class="vector-map"></div>
+                            </div>
+
+                            <!-- Media Chat Right -->
+                            <div class="media media-chat media-chat-right">
+                                <div class="media-body">
+                                    <div class="text-content">
+                                        <span class="message">Hello i am Riman.</span>
+                                        <time class="time">4 mins ago</time>
+                                    </div>
+                                    <div class="text-content">
+                                        <span class="message">I want to know about yourself</span>
+                                        <time class="time">3 mins ago</time>
+                                    </div>
+                                </div>
+                                <img src="images/user/user-sm-02.jpg" class="rounded-circle" alt="Avata Image">
+                            </div>
+
+                            <!-- Media Chat Left -->
+                            <div class="media media-chat">
+                                <img src="images/user/user-sm-01.jpg" class="rounded-circle" alt="Avata Image">
+                                <div class="media-body">
+                                    <div class="text-content">
+                                        <span class="message">Its had resolving otherwise she contented therefore.</span>
+                                        <time class="time">1 mins ago</time>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="chat-footer">
+                            <form>
+                                <div class="input-group input-group-chat">
+                                    <div class="input-group-prepend">
+                                        <span class="emoticon-icon mdi mdi-emoticon-happy-outline"></span>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                        aria-label="Text input with dropdown button">
+                                </div>
+                            </form>
+                        </div>
                     </div>
+
+                </div>
+            </div>
+
+            <!-- Stock Modal -->
+            <div class="modal fade modal-stock" id="modal-stock" aria-labelledby="modal-stock" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                    <form action="#">
+                        <div class="modal-content">
+                            <div class="modal-header align-items-center p3 p-md-5">
+                                <h2 class="modal-title" id="exampleModalGridTitle">Add Stock</h2>
+                                <div>
+                                    <button type="button" class="btn btn-light btn-pill mr-1 mr-md-2"
+                                        data-dismiss="modal"> cancel
+                                    </button>
+                                    <button type="submit" class="btn btn-primary  btn-pill" data-dismiss="modal"> save
+                                    </button>
+                                </div>
+
+                            </div>
+                            <div class="modal-body p3 p-md-5">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <h3 class="h5 mb-5">Product Information</h3>
+                                        <div class="form-group mb-5">
+                                            <label for="new-product">Product Title</label>
+                                            <input type="text" class="form-control" id="new-product"
+                                                placeholder="Add Product">
+                                        </div>
+                                        <div class="form-row mb-4">
+                                            <div class="col">
+                                                <label for="price">Price</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">$</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="price"
+                                                        placeholder="Price" aria-label="Price"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <label for="sale-price">Sale Price</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">$</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="sale-price"
+                                                        placeholder="Sale Price" aria-label="SalePrice"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-type mb-3 ">
+                                            <label class="d-block" for="sale-price">Product Type <i
+                                                    class="mdi mdi-help-circle-outline"></i> </label>
+                                            <div>
+
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio1" name="customRadio"
+                                                        class="custom-control-input" checked="checked">
+                                                    <label class="custom-control-label" for="customRadio1">Physical
+                                                        Good</label>
+                                                </div>
+
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio2" name="customRadio"
+                                                        class="custom-control-input">
+                                                    <label class="custom-control-label" for="customRadio2">Digital
+                                                        Good</label>
+                                                </div>
+
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio3" name="customRadio"
+                                                        class="custom-control-input">
+                                                    <label class="custom-control-label" for="customRadio3">Service</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="editor">
+                                            <label class="d-block" for="sale-price">Description <i
+                                                    class="mdi mdi-help-circle-outline"></i></label>
+                                            <div id="standalone">
+                                                <div id="toolbar">
+                                                    <span class="ql-formats">
+                                                        <select class="ql-font"></select>
+                                                        <select class="ql-size"></select>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <button class="ql-bold"></button>
+                                                        <button class="ql-italic"></button>
+                                                        <button class="ql-underline"></button>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <select class="ql-color"></select>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <button class="ql-blockquote"></button>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <button class="ql-list" value="ordered"></button>
+                                                        <button class="ql-list" value="bullet"></button>
+                                                        <button class="ql-indent" value="-1"></button>
+                                                        <button class="ql-indent" value="+1"></button>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <button class="ql-direction" value="rtl"></button>
+                                                        <select class="ql-align"></select>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div id="editor"></div>
+
+                                            <div class="custom-control custom-checkbox d-inline-block mt-2">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                                <label class="custom-control-label" for="customCheck2">Hide product from
+                                                    published
+                                                    site</label>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFile"
+                                                placeholder="please imgae here">
+                                            <span class="upload-image">Click here to <span class="text-primary">add
+                                                    product image.</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                    bootstrapdash.com 2020</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
-                        href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin
-                        templates</a> from Bootstrapdash.com</span>
-            </div>
-        </footer>
-        <!-- partial -->
+
     </div>
 @endsection

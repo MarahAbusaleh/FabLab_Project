@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\DataTables\EventsDataTable;
 use App\Models\Events;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 
 class EventsController extends Controller
 {
+    use ImageUploadTrait;
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +27,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.events.create');
     }
 
     /**
@@ -36,7 +38,27 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => ['required', 'max:4196', 'image'],
+            'name' => ['required', 'max:50'],
+            'description' => ['required'],
+        ]);
+
+        $event = new Events();
+
+        $imagePath = $this->uploadImage($request, 'image', 'uploads');
+
+        $event->image = $imagePath;
+        $event->name = $request->name;
+        $event->description = $request->description;
+        $event->save();
+
+        $notification = array(
+            'message' => 'Event Created Successfully!!',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('events.index')->with($notification);
     }
 
     /**
@@ -56,9 +78,10 @@ class EventsController extends Controller
      * @param  \App\Models\Events  $events
      * @return \Illuminate\Http\Response
      */
-    public function edit(Events $events)
+    public function edit($id)
     {
-        //
+        $event = Events::findOrFail($id);
+        return view('admin.pages.events.edit', compact('event'));
     }
 
     /**
@@ -68,9 +91,29 @@ class EventsController extends Controller
      * @param  \App\Models\Events  $events
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Events $events)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'image' => ['nullable', 'max:4196', 'image'],
+            'name' => ['required', 'max:50'],
+            'description' => ['required'],
+        ]);
+
+        $event = Events::findOrFail($id);
+
+        $imagePath = $this->updateImage($request, 'image', 'uploads', $event->image);
+
+        $event->image = $imagePath;
+        $event->name = $request->name;
+        $event->description = $request->description;
+        $event->save();
+
+        $notification = array(
+            'message' => 'Event Created Successfully!!',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('events.index')->with($notification);
     }
 
     /**
@@ -79,8 +122,12 @@ class EventsController extends Controller
      * @param  \App\Models\Events  $events
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Events $events)
+    public function destroy($id)
     {
-        //
+        $event = Events::findOrFail($id);
+        $this->deleteImage($event->image);
+        $event->delete();
+
+        return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
     }
 }

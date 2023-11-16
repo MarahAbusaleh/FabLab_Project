@@ -1,69 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en" dir="ltr">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>Corona Admin</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.base.css') }}">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/jvectormap/jquery-jvectormap.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/owl-carousel-2/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/owl-carousel-2/owl.theme.default.min.css') }}">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.png') }}" />
-
-    {{-- data Tables Css --}}
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <title></title>
+    <!-- theme meta -->
+    <meta name="theme-name" content="mono" />
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
+    <link href="{{ asset('admin/plugins/material/css/materialdesignicons.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/plugins/simplebar/simplebar.css') }}" rel="stylesheet" />
+    <!-- PLUGINS CSS STYLE -->
+    <link href="{{ asset('admin/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/plugins/prism/prism.css') }}" rel="stylesheet" />
+    <link href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+        rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="{{ asset('admin/plugins/toaster/toastr.min.css') }}" rel="stylesheet" />
+    <!-- MONO CSS -->
+    <link id="main-css-href" rel="stylesheet" href="{{ asset('admin/css/style.css') }}" />
+    <!-- FAVICON -->
+    <link href="{{ asset('admin/images/favicon.png') }}" rel="shortcut icon" />
+    <script src="{{ asset('admin/plugins/nprogress/nprogress.js') }}"></script>
 </head>
 
-<body>
-    <div class="container-scroller">
+<body class="navbar-fixed sidebar-fixed" id="body">
+    <script>
+        NProgress.configure({
+            showSpinner: false
+        });
+        NProgress.start();
+    </script>
+    <!-- ====================================
+    ——— WRAPPER
+    ===================================== -->
+    <div class="wrapper">
         @include('admin.layouts.sidebar')
-        <div class="container-fluid page-body-wrapper">
+        <!-- ====================================
+      ——— PAGE WRAPPER
+      ===================================== -->
+        <div class="page-wrapper">
             @include('admin.layouts.header')
-            @yield('content')
-        </div>
-        <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="{{ asset('admin/assets/vendors/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/vendors/progressbar.js/progressbar.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/vendors/jvectormap/jquery-jvectormap.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-    <script src="{{ asset('admin/assets/vendors/owl-carousel-2/owl.carousel.min.js') }}"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="{{ asset('admin/assets/js/off-canvas.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/misc.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/settings.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/todolist.js') }}"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="{{ asset('admin/assets/js/dashboard.js') }}"></script>
-    <!-- End custom js for this page -->
 
-    {{-- Datatable JS --}}
-    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+            @yield('content')
+
+            @include('admin.layouts.footer')
+        </div>
+    </div>
+    <!-- Card Offcanvas -->
+    <div class="card card-offcanvas" id="contact-off">
+        <div class="card-header">
+            <h2>Contacts</h2>
+            <a href="#" class="btn btn-primary btn-pill px-4">Add New</a>
+        </div>
+        <div class="card-body">
+            <div class="mb-4">
+                <input type="text" class="form-control form-control-lg form-control-secondary rounded-0"
+                    placeholder="Search contacts...">
+            </div>
+            <div class="media media-sm">
+                <div class="media-sm-wrapper">
+                    <a href="user-profile.html">
+                        <img src="{{ asset('admin/images/user/user-sm-01.jpg') }}" alt="User Image">
+                        <span class="active bg-primary"></span>
+                    </a>
+                </div>
+                <div class="media-body">
+                    <a href="user-profile.html">
+                        <span class="title">Selena Wagner</span>
+                        <span class="discribe">Designer</span>
+                    </a>
+                </div>
+            </div>
+            <div class="media media-sm">
+                <div class="media-sm-wrapper">
+                    <a href="user-profile.html">
+                        <img src="{{ asset('admin/images/user/user-sm-02.jpg') }}" alt="User Image">
+                        <span class="active bg-primary"></span>
+                    </a>
+                </div>
+                <div class="media-body">
+                    <a href="user-profile.html">
+                        <span class="title">Walter Reuter</span>
+                        <span>Developer</span>
+                    </a>
+                </div>
+            </div>
+            <div class="media media-sm">
+                <div class="media-sm-wrapper">
+                    <a href="user-profile.html">
+                        <img src="{{ asset('admin/images/user/user-sm-03.jpg') }}" alt="User Image">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <a href="user-profile.html">
+                        <span class="title">Larissa Gebhardt</span>
+                        <span>Cyber Punk</span>
+                    </a>
+                </div>
+            </div>
+            <div class="media media-sm">
+                <div class="media-sm-wrapper">
+                    <a href="user-profile.html">
+                        <img src="{{ asset('admin/images/user/user-sm-04.jpg') }}" alt="User Image">
+                    </a>
+
+                </div>
+                <div class="media-body">
+                    <a href="user-profile.html">
+                        <span class="title">Albrecht Straub</span>
+                        <span>Photographer</span>
+                    </a>
+                </div>
+            </div>
+            <div class="media media-sm">
+                <div class="media-sm-wrapper">
+                    <a href="user-profile.html">
+                        <img src="{{ asset('admin/images/user/user-sm-05.jpg') }}" alt="User Image">
+                        <span class="active bg-danger"></span>
+                    </a>
+                </div>
+                <div class="media-body">
+                    <a href="user-profile.html">
+                        <span class="title">Leopold Ebert</span>
+                        <span>Fashion Designer</span>
+                    </a>
+                </div>
+            </div>
+            <div class="media media-sm">
+                <div class="media-sm-wrapper">
+                    <a href="user-profile.html">
+                        <img src="{{ asset('admin/images/user/user-sm-06.jpg') }}" alt="User Image">
+                        <span class="active bg-primary"></span>
+                    </a>
+                </div>
+                <div class="media-body">
+                    <a href="user-profile.html">
+                        <span class="title">Selena Wagner</span>
+                        <span>Photographer</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/simplebar/simplebar.min.js') }}"></script>
+    <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+    <script src="{{ asset('admin/plugins/apexcharts/apexcharts.js') }}"></script>
+    <script src="{{ asset('admin/plugins/prism/prism.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-world-mill.js') }}"></script>
+    <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-us-aea.js') }}"></script>
+    <script src="{{ asset('admin/plugins/daterangepicker/moment.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/daterangepicker/daterangepicker.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            jQuery('input[name="dateRange"]').daterangepicker({
+                autoUpdateInput: false,
+                singleDatePicker: true,
+                locale: {
+                    cancelLabel: 'Clear'
+                }
+            });
+            jQuery('input[name="dateRange"]').on('apply.daterangepicker', function(ev, picker) {
+                jQuery(this).val(picker.startDate.format('MM/DD/YYYY'));
+            });
+            jQuery('input[name="dateRange"]').on('cancel.daterangepicker', function(ev, picker) {
+                jQuery(this).val('');
+            });
+        });
+    </script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="{{ asset('admin/plugins/toaster/toastr.min.js') }}"></script>
+    <script src="{{ asset('admin/js/mono.js') }}"></script>
+    <script src="{{ asset('admin/js/chart.js') }}"></script>
+    <script src="{{ asset('admin/js/map.js') }}"></script>
+    <script src="{{ asset('admin/js/custom.js') }}"></script>
     <script src="https://kit.fontawesome.com/09ce849ccf.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                toastr.error("{{ $error }}")
+            @endforeach
+        @endif
+    </script>
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
     <script>
         $(document).ready(function() {
             $.ajaxSetup({
@@ -111,6 +272,8 @@
                                 console.log(error);
                             }
                         })
+
+
                     }
                 })
             })
