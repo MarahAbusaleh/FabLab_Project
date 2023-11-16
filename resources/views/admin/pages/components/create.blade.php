@@ -4,10 +4,10 @@
         <div class="content">
             <div class="card card-default">
                 <div class="card-header">
-                    <h2>Create Components</h2>
+                    <h2>Create Component</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('components.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-xl-2">

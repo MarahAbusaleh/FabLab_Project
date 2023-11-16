@@ -23,6 +23,13 @@
                         <span class="nav-text">Events</span>
                     </a>
                 </li>
+
+                <li class="{{ set_active(['components.*']) }}">
+                    <a class="sidenav-item-link" href="{{ route('components.index') }}">
+                        <i class="mdi mdi-account-group"></i>
+                        <span class="nav-text">Components</span>
+                    </a>
+                </li>
                 <li class="{{ set_active(['home-page.*']) }}">
                     <a class="sidenav-item-link" href="{{ route('home-page.index') }}">
                         <i class="mdi mdi-account-group"></i>
