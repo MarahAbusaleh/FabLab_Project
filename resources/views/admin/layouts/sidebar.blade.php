@@ -23,6 +23,18 @@
                         <span class="nav-text">Events</span>
                     </a>
                 </li>
+                <li class="{{ set_active(['features.*']) }}">
+                    <a class="sidenav-item-link" href="{{ route('features.index') }}">
+                        <i class="mdi mdi-account-group"></i>
+                        <span class="nav-text">Features</span>
+                    </a>
+                </li>
+                <li class="{{ set_active(['roadmap.*']) }}">
+                    <a class="sidenav-item-link" href="{{ route('roadmap.index') }}">
+                        <i class="mdi mdi-account-group"></i>
+                        <span class="nav-text">Road Map</span>
+                    </a>
+                </li>
                 {{-- <li class="{{ set_active(['admin.categories.*']) }}">
                     <a class="sidenav-item-link" href="{{ route('admin.categories.index') }}">
                         <i class="mdi mdi-certificate"></i>

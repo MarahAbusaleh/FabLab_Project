@@ -2,17 +2,17 @@
 
 namespace App\DataTables;
 
-use App\Models\Events;
-use Yajra\DataTables\Html\Button;
-use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Editor\Fields;
-use Yajra\DataTables\Html\Editor\Editor;
+use App\Models\RoadMap;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
+use Yajra\DataTables\Services\DataTable;
 
-class EventsDataTable extends DataTable
+class RoadMapDataTable extends DataTable
 {
 
     public function dataTable(QueryBuilder $query): EloquentDataTable
@@ -20,20 +20,21 @@ class EventsDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($query) {
                 $btns = "<div class='btn-group mr-3 mb-4' role='group' aria-label='Basic example'>
-                    <a href='" . route('events.edit', $query->id) . "' type='button' class='btn btn-success'><i class='far fa-edit'></i></a>
-                    <a href='" . route('events.destroy', $query->id) . "' type='button' class='btn btn-danger delete-item'><i class='fas fa-trash-alt'></i></a>
+                    <a href='" . route('roadmap.edit', $query->id) . "' type='button' class='btn btn-success'><i class='far fa-edit'></i></a>
+                    <a href='" . route('roadmap.destroy', $query->id) . "' type='button' class='btn btn-danger delete-item'><i class='fas fa-trash-alt'></i></a>
                 </div>";
                 return $btns;
             })
             ->addColumn('image', function ($query) {
-                return $img = "<img width='80px' src='" . asset($query->image) . "'></img>";
+                return "<img width='100px' src='" . asset($query->image) . "'></img>";
             })
-            ->rawColumns(['image', 'action'])
+
+            ->rawColumns(['action', 'image'])
             ->setRowId('id');
     }
 
 
-    public function query(Events $model): QueryBuilder
+    public function query(RoadMap $model): QueryBuilder
     {
         return $model->newQuery();
     }
@@ -42,11 +43,11 @@ class EventsDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('events-table')
+            ->setTableId('roadmap-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
-            ->orderBy(0)
+            ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
                 Button::make('excel'),
@@ -62,10 +63,7 @@ class EventsDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id'),
-            Column::make('name'),
             Column::make('image'),
-            Column::make('description'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
@@ -74,9 +72,13 @@ class EventsDataTable extends DataTable
         ];
     }
 
-
+    /**
+     * Get filename for export.
+     *
+     * @return string
+     */
     protected function filename(): string
     {
-        return 'Events_' . date('YmdHis');
+        return 'RoadMap_' . date('YmdHis');
     }
 }
