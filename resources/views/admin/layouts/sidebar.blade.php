@@ -84,7 +84,7 @@
                         <i class="mdi mdi-calendar-check"></i>
                         <span class="nav-text">Calendar</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
