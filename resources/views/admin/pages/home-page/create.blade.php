@@ -4,10 +4,10 @@
         <div class="content">
             <div class="card card-default">
                 <div class="card-header">
-                    <h2>Create Components</h2>
+                    <h2>Create Home Page</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('home-page.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-xl-2">
@@ -25,25 +25,25 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="mb-5">
-                                    <label class="text-dark font-weight-medium">Component Name</label>
+                                    <label class="text-dark font-weight-medium">Home Page Header</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text mdi mdi-certificate" id="mdi-account"></span>
                                         </div>
-                                        <input type="text" class="form-control" name="name"
-                                            value="{{ old('name') }}">
+                                        <input type="text" class="form-control" name="header"
+                                            value="{{ old('header') }}">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-12">
                                 <div class="mb-5">
-                                    <label class="text-dark font-weight-medium" for="">Component Description</label>
+                                    <label class="text-dark font-weight-medium">Home Page Text</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text mdi mdi-format-list-bulleted-type"
-                                                id="basic-addon1"></span>
+                                            <span class="input-group-text mdi mdi-certificate" id="mdi-account"></span>
                                         </div>
-                                        <textarea rows="5" class="form-control" name="description">{{ old('description') }}</textarea>
+                                        <input type="text" class="form-control" name="text"
+                                            value="{{ old('text') }}">
                                     </div>
                                 </div>
                             </div>

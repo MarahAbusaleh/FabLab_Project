@@ -2,26 +2,31 @@
 
 namespace App\DataTables;
 
-use App\Models\Events;
-use Yajra\DataTables\Html\Button;
-use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Editor\Fields;
-use Yajra\DataTables\Html\Editor\Editor;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
+use Yajra\DataTables\Services\DataTable;
 
-class EventsDataTable extends DataTable
+class AdminUsersDataTable extends DataTable
 {
-
+    /**
+     * Build DataTable class.
+     *
+     * @param QueryBuilder $query Results from query() method.
+     * @return \Yajra\DataTables\EloquentDataTable
+     */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($query) {
                 $btns = "<div class='btn-group mr-3 mb-4' role='group' aria-label='Basic example'>
-                    <a href='" . route('events.edit', $query->id) . "' type='button' class='btn btn-success'><i class='far fa-edit'></i></a>
-                    <a href='" . route('events.destroy', $query->id) . "' type='button' class='btn btn-danger delete-item'><i class='fas fa-trash-alt'></i></a>
+                    <a href='" . route('admin-users.edit', $query->id) . "' type='button' class='btn btn-primary'><i class='far fa-edit'></i></a>
+                    <a href='" . route('admin-users.destroy', $query->id) . "' type='button' class='btn btn-danger delete-item'><i class='fas fa-trash-alt'></i></a>
                 </div>";
                 return $btns;
             })
@@ -32,17 +37,27 @@ class EventsDataTable extends DataTable
             ->setRowId('id');
     }
 
-
-    public function query(Events $model): QueryBuilder
+    /**
+     * Get query source of dataTable.
+     *
+     * @param \App\Models\AdminUser $model
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function query(User $model): QueryBuilder
     {
-        return $model->newQuery();
+        $loggedInUserId = auth()->id();
+        return $model->newQuery()->where('id', '!=', $loggedInUserId);;
     }
 
-
+    /**
+     * Optional method if you want to use html builder.
+     *
+     * @return \Yajra\DataTables\Html\Builder
+     */
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('events-table')
+            ->setTableId('adminusers-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
@@ -58,14 +73,18 @@ class EventsDataTable extends DataTable
             ]);
     }
 
-
+    /**
+     * Get the dataTable columns definition.
+     *
+     * @return array
+     */
     public function getColumns(): array
     {
         return [
             Column::make('id'),
-            Column::make('name'),
             Column::make('image'),
-            Column::make('description'),
+            Column::make('name'),
+            Column::make('email'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
@@ -74,9 +93,13 @@ class EventsDataTable extends DataTable
         ];
     }
 
-
+    /**
+     * Get filename for export.
+     *
+     * @return string
+     */
     protected function filename(): string
     {
-        return 'Events_' . date('YmdHis');
+        return 'AdminUsers_' . date('YmdHis');
     }
 }

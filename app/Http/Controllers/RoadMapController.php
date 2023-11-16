@@ -2,84 +2,91 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\RoadMapDataTable;
 use App\Models\RoadMap;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 
 class RoadMapController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    use ImageUploadTrait;
+
+    public function index(RoadMapDataTable $dataTable)
     {
-        //
+        return $dataTable->render('admin.pages.roadmap.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('admin.pages.roadmap.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => ['required', 'max:4196', 'image'],
+        ]);
+
+        $roadmap = new RoadMap();
+
+        $imagePath = $this->uploadImage($request, 'image', 'uploads');
+
+        $roadmap->image = $imagePath;
+        $roadmap->save();
+
+        $notification = array(
+            'message' => 'Road Map Created Successfully!!',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('roadmap.index')->with($notification);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\RoadMap  $roadMap
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(RoadMap $roadMap)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\RoadMap  $roadMap
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(RoadMap $roadMap)
+
+    public function edit(RoadMap $RoadMap, $id)
     {
-        //
+        $roadmap = RoadMap::findOrFail($id);
+        return view('admin.pages.roadmap.edit', compact('roadmap'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\RoadMap  $roadMap
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, RoadMap $roadMap)
+
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'image' => ['nullable', 'max:4196', 'image'],
+        ]);
+
+        $roadmap = RoadMap::findOrFail($id);
+
+        $imagePath = $this->updateImage($request, 'image', 'uploads', $roadmap->image);
+
+        $roadmap->image = empty(!$imagePath) ? $imagePath : $roadmap->image;
+        $roadmap->save();
+
+        $notification = array(
+            'message' => 'Road Map Created Successfully!!',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('roadmap.index')->with($notification);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\RoadMap  $roadMap
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(RoadMap $roadMap)
+
+    public function destroy($id)
     {
-        //
+        $roadmap = RoadMap::findOrFail($id);
+        $this->deleteImage($roadmap->image);
+        $roadmap->delete();
+
+        return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
     }
 }

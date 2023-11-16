@@ -4,15 +4,17 @@
         <div class="content">
             <div class="card card-default">
                 <div class="card-header">
-                    <h2>Create Components</h2>
+                    <h2>Edit Admin: {{ $admin->name }}</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin-users.update', $admin->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="row">
                             <div class="col-xl-2">
                                 <div class="mb-5">
-                                    <img id="showImage" width="100px" src="{{ url('no-image.jpg') }}">
+                                    <img id="showImage" width="100px"
+                                        src="{{ $admin->image == '' ? url('no-admin-image.png') : asset($admin->image) }}">
                                 </div>
                             </div>
                             <div class="col-xl-10">
@@ -25,25 +27,25 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="mb-5">
-                                    <label class="text-dark font-weight-medium">Component Name</label>
+                                    <label class="text-dark font-weight-medium">Admin Name</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text mdi mdi-certificate" id="mdi-account"></span>
                                         </div>
                                         <input type="text" class="form-control" name="name"
-                                            value="{{ old('name') }}">
+                                            value="{{ $admin->name }}">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-12">
                                 <div class="mb-5">
-                                    <label class="text-dark font-weight-medium" for="">Component Description</label>
+                                    <label class="text-dark font-weight-medium">Admin Email</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text mdi mdi-format-list-bulleted-type"
-                                                id="basic-addon1"></span>
+                                            <span class="input-group-text mdi mdi-certificate" id="mdi-account"></span>
                                         </div>
-                                        <textarea rows="5" class="form-control" name="description">{{ old('description') }}</textarea>
+                                        <input type="text" class="form-control" name="header"
+                                            value="{{ $admin->email }}">
                                     </div>
                                 </div>
                             </div>
