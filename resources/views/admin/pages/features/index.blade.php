@@ -1,4 +1,5 @@
 @extends('admin.layouts.master')
+@section('title', 'Features')
 @section('content')
     <div class="content-wrapper">
         <div class="content">

@@ -1,10 +1,11 @@
 @extends('admin.layouts.master')
+@section('title', 'Add Event')
 @section('content')
     <div class="content-wrapper">
         <div class="content">
             <div class="card card-default">
                 <div class="card-header">
-                    <h2>Create Components</h2>
+                    <h2>Create Event</h2>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
@@ -18,7 +19,12 @@
                             <div class="col-xl-10">
                                 <div class="mb-5">
                                     <label class="text-dark font-weight-medium" for="">Image</label>
-                                    <input type="file" class="form-control" name="image" id="image">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text mdi mdi-folder-image" id="mdi-account"></span>
+                                        </div>
+                                        <input type="file" class="form-control" name="image" id="image">
+                                    </div>
                                 </div>
                             </div>
                         </div>

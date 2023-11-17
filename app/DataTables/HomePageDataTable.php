@@ -25,7 +25,7 @@ class HomePageDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($query) {
                 $btns = "<div class='btn-group mr-3 mb-4' role='group' aria-label='Basic example'>
-                    <a href='" . route('home-page.edit', $query->id) . "' type='button' class='btn btn-primary'><i class='far fa-edit'></i></a>
+                    <a href='" . route('home-page.edit', $query->id) . "' type='button' class='btn btn-success'><i class='far fa-edit'></i></a>
                     <a href='" . route('home-page.destroy', $query->id) . "' type='button' class='btn btn-danger delete-item'><i class='fas fa-trash-alt'></i></a>
                 </div>";
                 return $btns;

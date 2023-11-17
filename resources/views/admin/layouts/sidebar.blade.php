@@ -3,8 +3,8 @@
         <!-- Aplication Brand -->
         <div class="app-brand">
             <a href="">
-                <img src="{{ asset('admin/images/logo.png') }}">
-                <span class="brand-name">MONO</span>
+                <img src="{{ asset('logo.png') }}" width="60px">
+                <span class="brand-name">FabLab</span>
             </a>
         </div>
         <!-- begin sidebar scrollbar -->
@@ -17,25 +17,46 @@
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
-                <li class="{{ set_active(['events.*']) }}">
-                    <a class="sidenav-item-link" href="{{ route('events.index') }}">
-                        <i class="mdi mdi-account-group"></i>
-                        <span class="nav-text">Events</span>
+                <li class="{{ set_active(['admin-users.*']) }}">
+                    <a class="sidenav-item-link" href="{{ route('admin-users.index') }}">
+                        <i class="mdi mdi-account-star"></i>
+                        <span class="nav-text">Admins</span>
+                    </a>
+                </li>
+                <li class="{{ set_active(['home-page.*']) }}">
+                    <a class="sidenav-item-link" href="{{ route('home-page.index') }}">
+                        <i class="mdi mdi-book-variant"></i>
+                        <span class="nav-text">Home Page</span>
+                    </a>
+                </li>
+                <li class="{{ set_active(['components.*']) }}">
+                    <a class="sidenav-item-link" href="{{ route('components.index') }}">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span class="nav-text">Components</span>
                     </a>
                 </li>
                 <li class="{{ set_active(['teams.*']) }}">
                     <a class="sidenav-item-link" href="{{ route('teams.index') }}">
                         <i class="mdi mdi-account-group"></i>
                         <span class="nav-text">Teams</span>
+                    </a>
+                </li>
+                <li class="{{ set_active(['events.*']) }}">
+                    <a class="sidenav-item-link" href="{{ route('events.index') }}">
+                        <i class="mdi mdi-chart-histogram"></i>
+                        <span class="nav-text">Events</span>
+                    </a>
+                </li>
+
                 <li class="{{ set_active(['features.*']) }}">
                     <a class="sidenav-item-link" href="{{ route('features.index') }}">
-                        <i class="mdi mdi-account-group"></i>
+                        <i class="mdi mdi-newspaper"></i>
                         <span class="nav-text">Features</span>
                     </a>
                 </li>
                 <li class="{{ set_active(['roadmap.*']) }}">
                     <a class="sidenav-item-link" href="{{ route('roadmap.index') }}">
-                        <i class="mdi mdi-account-group"></i>
+                        <i class="mdi mdi-file-image"></i>
                         <span class="nav-text">Road Map</span>
                     </a>
                 </li>
@@ -56,12 +77,7 @@
                         <span class="nav-text">Home Page</span>
                     </a>
                 </li>
-                <li class="{{ set_active(['admin-users.*']) }}">
-                    <a class="sidenav-item-link" href="{{ route('admin-users.index') }}">
-                        <i class="mdi mdi-account-group"></i>
-                        <span class="nav-text">Admins</span>
-                    </a>
-                </li>
+                
                 <li class="section-title">
                     Apps
                 </li>

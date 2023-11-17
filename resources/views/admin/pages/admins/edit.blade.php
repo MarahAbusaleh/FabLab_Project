@@ -1,4 +1,5 @@
 @extends('admin.layouts.master')
+@section('title', 'Edit Admin')
 @section('content')
     <div class="content-wrapper">
         <div class="content">
@@ -20,7 +21,12 @@
                             <div class="col-xl-10">
                                 <div class="mb-5">
                                     <label class="text-dark font-weight-medium" for="">Image</label>
-                                    <input type="file" class="form-control" name="image" id="image">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text mdi mdi-folder-image" id="mdi-account"></span>
+                                        </div>
+                                        <input type="file" class="form-control" name="image" id="image">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +36,8 @@
                                     <label class="text-dark font-weight-medium">Admin Name</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text mdi mdi-certificate" id="mdi-account"></span>
+                                            <span class="input-group-text mdi mdi-account-multiple-plus"
+                                                id="mdi-account"></span>
                                         </div>
                                         <input type="text" class="form-control" name="name"
                                             value="{{ $admin->name }}">
@@ -42,7 +49,7 @@
                                     <label class="text-dark font-weight-medium">Admin Email</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text mdi mdi-certificate" id="mdi-account"></span>
+                                            <span class="input-group-text mdi mdi-email-outline" id="mdi-account"></span>
                                         </div>
                                         <input type="text" class="form-control" name="header"
                                             value="{{ $admin->email }}">

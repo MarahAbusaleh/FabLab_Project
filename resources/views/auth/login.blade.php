@@ -17,7 +17,7 @@
         <link href="{{ asset('admin/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
         <link href="{{ asset('admin/plugins/toaster/toastr.min.css') }}" rel="stylesheet" />
 
-        <!-- MONO CSS -->
+        <!-- FabLab CSS -->
         <link id="main-css-href" rel="stylesheet" href="{{ asset('admin/css/style.css') }}" />
 
 
@@ -48,7 +48,7 @@
                         <div class="card-header pb-0">
                             <div class="app-brand w-100 d-flex justify-content-center border-bottom-0">
                                 <a class="w-auto pl-0" href="/index.html">
-                                    <img src="{{ asset('admin/images/logo.png') }}" alt="Mono">
+                                    <img src="{{ asset('logo.png') }}" alt="FabLab" width="90px">
                                     <span class="brand-name text-dark">Admin Login</span>
                                 </a>
                             </div>

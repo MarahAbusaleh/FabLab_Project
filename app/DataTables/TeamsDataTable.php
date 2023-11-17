@@ -25,7 +25,7 @@ class TeamsDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($query) {
                 $btns = "<div class='btn-group mr-3 mb-4' role='group' aria-label='Basic example'>
-                    <a href='" . route('teams.edit', $query->id) . "' type='button' class='btn btn-primary'><i class='far fa-edit'></i></a>
+                    <a href='" . route('teams.edit', $query->id) . "' type='button' class='btn btn-success'><i class='far fa-edit'></i></a>
                     <a href='" . route('teams.destroy', $query->id) . "' type='button' class='btn btn-danger delete-item'><i class='fas fa-trash-alt'></i></a>
                 </div>";
                 return $btns;
@@ -56,20 +56,20 @@ class TeamsDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('teams-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    //->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    ]);
+            ->setTableId('teams-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            //->dom('Bfrtip')
+            ->orderBy(1)
+            ->selectStyleSingle()
+            ->buttons([
+                Button::make('excel'),
+                Button::make('csv'),
+                Button::make('pdf'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            ]);
     }
 
     /**

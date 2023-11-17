@@ -2,8 +2,8 @@
 <footer class="footer mt-auto">
     <div class="copyright bg-white">
         <p>
-            &copy; <span id="copy-year"></span> Copyright Mono Dashboard Bootstrap Template by <a class="text-primary"
-                href="http://www.iamabdus.com/" target="_blank">Abdus</a>.
+            </span> Powerd by <a class="text-primary" href="" target="_blank">Coding
+                Academy By Orange | Irbid Bransh</a> &copy; <span id="copy-year">.
         </p>
     </div>
     <script>

@@ -1,4 +1,5 @@
 @extends('admin.layouts.master')
+@section('title', 'Edit Event')
 @section('content')
     <div class="content-wrapper">
         <div class="content">
@@ -7,8 +8,7 @@
                     <h2>Edit Event: {{ $event->name }}</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('events.update', $event->id) }}" method="POST"
-                        enctype="multipart/form-data">
+                    <form action="{{ route('events.update', $event->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -21,7 +21,12 @@
                             <div class="col-xl-10">
                                 <div class="mb-5">
                                     <label class="text-dark font-weight-medium" for="">Image</label>
-                                    <input type="file" class="form-control" name="image" id="image">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text mdi mdi-folder-image" id="mdi-account"></span>
+                                        </div>
+                                        <input type="file" class="form-control" name="image" id="image">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +39,7 @@
                                             <span class="input-group-text mdi mdi-certificate" id="mdi-account"></span>
                                         </div>
                                         <input type="text" class="form-control" name="name"
-                                            value="{{  $event->name }}">
+                                            value="{{ $event->name }}">
                                     </div>
                                 </div>
                             </div>

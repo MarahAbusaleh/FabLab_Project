@@ -1,4 +1,5 @@
 @extends('admin.layouts.master')
+@section('title', 'Team Members')
 @section('content')
     <div class="content-wrapper">
         <div class="content">
@@ -7,7 +8,7 @@
                     <h4>Manage Teams</h4>
                     <a href="{{ route('teams.create') }}" class="mb-1 btn btn-outline-primary">
                         <i class=" mdi mdi-checkbox-marked-outline mr-1"></i>
-                        Create New Team
+                        Create New Team Member
                     </a>
                 </div>
                 <div class="card-body table-responsive">

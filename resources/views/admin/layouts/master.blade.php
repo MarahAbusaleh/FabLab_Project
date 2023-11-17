@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title></title>
+    <title>@yield('title')</title>
     <!-- theme meta -->
     <meta name="theme-name" content="mono" />
     <!-- GOOGLE FONTS -->
@@ -35,7 +35,7 @@
     <!-- MONO CSS -->
     <link id="main-css-href" rel="stylesheet" href="{{ asset('admin/css/style.css') }}" />
     <!-- FAVICON -->
-    <link href="{{ asset('admin/images/favicon.png') }}" rel="shortcut icon" />
+    <link href="{{ asset('logo-rbg.png') }}" rel="shortcut icon" />
     <script src="{{ asset('admin/plugins/nprogress/nprogress.js') }}"></script>
 </head>
 
@@ -242,7 +242,7 @@
                     text: "You won't be able to revert this!",
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '#9e6de0',
+                    confirmButtonColor: '#fd7e14',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {

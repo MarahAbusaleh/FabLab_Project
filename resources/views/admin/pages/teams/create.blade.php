@@ -1,11 +1,11 @@
 @extends('admin.layouts.master')
-
+@section('title', 'Add Team Member')
 @section('content')
     <div class="content-wrapper">
         <div class="content">
             <div class="card card-default">
                 <div class="card-header">
-                    <h2>Create Events</h2>
+                    <h2>Create Team Member</h2>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('teams.store') }}" method="POST" enctype="multipart/form-data">
@@ -19,7 +19,12 @@
                             <div class="col-xl-10">
                                 <div class="mb-5">
                                     <label class="text-dark font-weight-medium" for="">Image</label>
-                                    <input type="file" class="form-control" name="image" id="image">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text mdi mdi-folder-image" id="mdi-account"></span>
+                                        </div>
+                                        <input type="file" class="form-control" name="image" id="image">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +63,7 @@
                                         <select class="form-control" name="role">
                                             <option value="instructor" selected>
                                                 Select an option</option>
-                                                <option value="instructor"{{ old('role') === 'instructor' ? ' selected' : '' }}>
+                                            <option value="instructor"{{ old('role') === 'instructor' ? ' selected' : '' }}>
                                                 Instructor</option>
                                             <option value="student"{{ old('role') === 'student' ? ' selected' : '' }}>
                                                 Student</option>
