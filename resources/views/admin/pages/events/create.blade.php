@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="mb-5">
-                                    <label class="text-dark font-weight-medium">Component Name</label>
+                                    <label class="text-dark font-weight-medium">Event Name</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text mdi mdi-certificate" id="mdi-account"></span>
@@ -43,7 +43,19 @@
                             </div>
                             <div class="col-xl-12">
                                 <div class="mb-5">
-                                    <label class="text-dark font-weight-medium" for="">Component Description</label>
+                                    <label class="text-dark font-weight-medium">Event Date</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text mdi mdi-calendar-today" id="mdi-account"></span>
+                                        </div>
+                                        <input type="date" class="form-control" name="date"
+                                            value="{{ old('date') }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="mb-5">
+                                    <label class="text-dark font-weight-medium" for="">Event Description</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text mdi mdi-format-list-bulleted-type"

@@ -45,6 +45,18 @@
                             </div>
                             <div class="col-xl-12">
                                 <div class="mb-5">
+                                    <label class="text-dark font-weight-medium">Event Date</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text mdi mdi-calendar-today" id="mdi-account"></span>
+                                        </div>
+                                        <input type="date" class="form-control" name="date"
+                                            value="{{ $event->date }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="mb-5">
                                     <label class="text-dark font-weight-medium" for="">Event Description</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">

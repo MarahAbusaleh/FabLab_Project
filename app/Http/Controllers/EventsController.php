@@ -29,6 +29,7 @@ class EventsController extends Controller
             'image' => ['required', 'max:4196', 'image'],
             'name' => ['required', 'max:50'],
             'description' => ['required'],
+            'date' => ['required'],
         ]);
 
         $event = new Events();
@@ -38,6 +39,7 @@ class EventsController extends Controller
         $event->image = $imagePath;
         $event->name = $request->name;
         $event->description = $request->description;
+        $event->date = $request->date;
         $event->save();
 
         $notification = array(
@@ -51,7 +53,8 @@ class EventsController extends Controller
 
     public function show(Events $events)
     {
-        //
+        $events = Events::all();
+        return view('pages.events', compact('events'));
     }
 
 
@@ -68,6 +71,7 @@ class EventsController extends Controller
             'image' => ['nullable', 'max:4196', 'image'],
             'name' => ['required', 'max:50'],
             'description' => ['required'],
+            'date' => ['required'],
         ]);
 
         $event = Events::findOrFail($id);
@@ -77,6 +81,7 @@ class EventsController extends Controller
         $event->image = empty(!$imagePath) ? $imagePath : $event->image;
         $event->name = $request->name;
         $event->description = $request->description;
+        $event->date = $request->date;
         $event->save();
 
         $notification = array(

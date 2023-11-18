@@ -66,6 +66,7 @@ class EventsDataTable extends DataTable
             Column::make('name'),
             Column::make('image'),
             Column::make('description'),
+            Column::make('date'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
