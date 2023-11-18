@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomePageController::class, 'home'])->name('home');
+Route::get('team', [TeamController::class, 'show'])->name('team');

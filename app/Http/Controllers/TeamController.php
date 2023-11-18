@@ -11,32 +11,19 @@ class TeamController extends Controller
 {
     use ImageUploadTrait;
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(TeamsDataTable $dataTable)
     {
         return $dataTable->render('admin.pages.teams.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('admin.pages.teams.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -71,36 +58,23 @@ class TeamController extends Controller
         return redirect()->route('teams.index')->with($notification);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Team $team)
     {
-        //
+        $instructors = Team::where('role', 'instructor')->get();
+        $students = Team::where('role', 'student')->get();
+
+        return view('pages.team', compact('instructors', 'students'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $team = Team::findOrFail($id);
         return view('admin.pages.teams.edit', compact('team'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -117,8 +91,6 @@ class TeamController extends Controller
         $imagePath = $this->updateImage($request, 'image', 'uploads', $team->image);
         $team->image = empty(!$imagePath) ? $imagePath : $team->image;
 
-
-        
         $team->name = $request->name;
         $team->email = $request->email;
         $team->role = $request->role;
@@ -133,12 +105,7 @@ class TeamController extends Controller
         return redirect()->route('teams.index')->with($notification);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $team = Team::findOrFail($id);
