@@ -10,32 +10,19 @@ use Illuminate\Http\Request;
 class ComponentsController extends Controller
 {
     use ImageUploadTrait;
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(ComponentsDataTable $dataTable)
     {
         return $dataTable->render('admin.pages.components.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('admin.pages.components.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -60,36 +47,21 @@ class ComponentsController extends Controller
         return redirect()->route('components.index')->with($notification);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Components  $components
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Components $components)
+
+    public function show(Components $components, $id)
     {
-        //
+        $component = Components::findOrFail($id);
+        return view('pages.components', compact('component'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Components  $components
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $component = Components::findOrFail($id);
         return view('admin.pages.components.edit', compact('component'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Components  $components
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -115,12 +87,7 @@ class ComponentsController extends Controller
         return redirect()->route('components.index')->with($notification);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Components  $components
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $component = Components::findOrFail($id);

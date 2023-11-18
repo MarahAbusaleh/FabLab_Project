@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ProfileController;
@@ -22,3 +23,4 @@ Route::get('/', [HomePageController::class, 'home'])->name('home');
 Route::get('team', [TeamController::class, 'show'])->name('team');
 Route::get('roadmap', [RoadMapController::class, 'show'])->name('roadmap');
 Route::get('events', [EventsController::class, 'show'])->name('events');
+Route::get('component/{id}', [ComponentsController::class, 'show'])->name('component');
