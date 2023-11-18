@@ -3,6 +3,47 @@
     <!-- Team Start -->
     <div class="container-fluid container-team py-5">
         <div class="container pb-5">
+            <section class="speaker-section spad">
+                <h1> Instructors </h1>
+                <div class="container">
+                    <div class="row">
+                        @foreach ($instructors as $instructor)
+                            <div class="col-sm-6">
+                                <div class="speaker-item">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="si-pic">
+                                                <img src="{{ asset($instructor->image) }}" alt="" width="100%">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="si-text">
+                                                <div class="si-title">
+                                                    <h4>{{ $instructor->name }}</h4>
+                                                    <span>{{ $instructor->role }}</span>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <a class="btn btn-lg-square btn-primary me-2" href=""><i
+                                                            class="fab fa-facebook-f"></i></a>
+                                                    <a class="btn btn-lg-square btn-primary me-2" href=""><i
+                                                            class="fab fa-twitter"></i></a>
+                                                    <a class="btn btn-lg-square btn-primary me-2" href=""><i
+                                                            class="fab fa-linkedin-in"></i></a>
+                                                    <a class="btn btn-lg-square btn-primary me-2" href=""><i
+                                                            class="fab fa-youtube"></i></a>
+                                                </div>
+                                                <p class="mb-4">
+                                                    {{ $instructor->description }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
             <h1> Instructors </h1>
             @foreach ($instructors as $instructor)
                 <div class="row g-5 align-items-center mb-5">
