@@ -48,7 +48,8 @@ class RoadMapController extends Controller
 
     public function show(RoadMap $roadMap)
     {
-        //
+        $roadmap = RoadMap::first();
+        return view('pages.roadmap', compact('roadmap'));
     }
 
 
