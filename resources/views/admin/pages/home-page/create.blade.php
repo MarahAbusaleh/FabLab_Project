@@ -16,17 +16,36 @@
                                     <img id="showImage" width="100px" src="{{ url('no-image.jpg') }}">
                                 </div>
                             </div>
-                            <div class="col-xl-10">
+                            <div class="col-xl-5">
                                 <div class="mb-5">
-                                    <label class="text-dark font-weight-medium" for="">Image</label>
+                                    <label class="text-dark font-weight-medium" for="">media</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text mdi mdi-folder-image" id="mdi-account"></span>
                                         </div>
-                                        <input type="file" class="form-control" name="image" id="image">
+                                        <input type="file" class="form-control" name="media" id="image">
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xl-5">
+                                <div class="mb-5">
+                                    <label class="text-dark font-weight-medium" for="">Media Type</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text mdi mdi-account" id="mdi-account"></span>
+                                        </div>
+                                        <select class="form-control" name="mediaType">
+                                            <option value="image" selected>
+                                                Select an option</option>
+                                            <option value="video"{{ old('mediaType') === 'video' ? ' selected' : '' }}>
+                                                Video</option>
+                                            <option value="image"{{ old('mediaType') === 'image' ? ' selected' : '' }}>
+                                                Image</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-xl-12">

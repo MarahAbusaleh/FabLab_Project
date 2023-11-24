@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\HomePageDataTable;
+use App\Models\Events;
 use App\Models\HomePage;
+use App\Models\Team;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 
@@ -17,7 +19,11 @@ class HomePageController extends Controller
      */
     public function home()
     {
-        return view("pages.index");
+        $slider = HomePage::all();
+        $events = Events::all();
+        $instructors = Team::where("role","instructor")->get();
+        $students = Team::where("role","student")->get();
+        return view("pages.index", compact("slider","events","instructors","students"));
     }
     public function index(HomePageDataTable $dataTable)
     {
@@ -43,16 +49,18 @@ class HomePageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => ['required', 'max:4196', 'image'],
+            'media' => ['required'  ],
+            'mediaType' => ['required'],
             'header' => ['required', 'max:20'],
             'text' => ['required', 'max:50'],
         ]);
 
         $homePage = new HomePage();
 
-        $imagePath = $this->uploadImage($request, 'image', 'uploads');
+        $imagePath = $this->uploadImage($request, 'media', 'uploads');
 
-        $homePage->image = $imagePath;
+        $homePage->media = $imagePath;
+        $homePage->mediaType = $request->mediaType;
         $homePage->header = $request->header;
         $homePage->text = $request->text;
         $homePage->save();

@@ -81,7 +81,8 @@ class HomePageDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('image'),
+            Column::make('media'),
+            Column::make('mediaType'),
             Column::make('text'),
             Column::make('header'),
             Column::computed('action')
