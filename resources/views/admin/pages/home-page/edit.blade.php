@@ -18,7 +18,7 @@
                                         src="{{ $homePage->image == '' ? url('no-image.jpg') : asset($homePage->image) }}">
                                 </div>
                             </div>
-                            <div class="col-xl-10">
+                            <div class="col-xl-5">
                                 <div class="mb-5">
                                     <label class="text-dark font-weight-medium" for="">Image</label>
                                     <div class="input-group mb-3">
@@ -26,6 +26,22 @@
                                             <span class="input-group-text mdi mdi-folder-image" id="mdi-account"></span>
                                         </div>
                                         <input type="file" class="form-control" name="image" id="image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-5">
+                                <div class="mb-5">
+                                    <label class="text-dark font-weight-medium" for="">Media Type</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text mdi mdi-account" id="mdi-account"></span>
+                                        </div>
+                                        <select class="form-control" name="mediaType">
+                                            <option value="video"{{ $homePage->mediaType === 'video' ? ' selected' : '' }}>
+                                                Video</option>
+                                            <option value="image"{{ $homePage->mediaType === 'image' ? ' selected' : '' }}>
+                                                Image</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

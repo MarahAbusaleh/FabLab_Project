@@ -98,17 +98,19 @@ class HomePageController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'image' => ['nullable', 'max:4196', 'image'],
+            'media' => ['nullable'],
+            'mediaType' => ['nullable'],
             'header' => ['required', 'max:20'],
             'text' => ['required', 'max:50'],
         ]);
 
         $homePage = HomePage::findOrFail($id);
 
-        $imagePath = $this->updateImage($request, 'image', 'uploads', $homePage->image);
+        $imagePath = $this->updateImage($request, 'media', 'uploads', $homePage->media);
 
-        $homePage->image = empty(!$imagePath) ? $imagePath : $homePage->image;
+        $homePage->media = empty(!$imagePath) ? $imagePath : $homePage->media;
         $homePage->header = $request->header;
+        $homePage->mediaType = $request->mediaType;
         $homePage->text = $request->text;
         $homePage->save();
 

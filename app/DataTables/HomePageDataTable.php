@@ -30,10 +30,10 @@ class HomePageDataTable extends DataTable
                 </div>";
                 return $btns;
             })
-            ->addColumn('image', function ($query) {
-                return $img = "<img width='80px' src='" . asset($query->image) . "'></img>";
+            ->addColumn('media', function ($query) {
+                return $img = "<img width='80px' src='" . asset($query->media) . "'></img>";
             })
-            ->rawColumns(['image', 'action'])
+            ->rawColumns(['media', 'action'])
             ->setRowId('id');
     }
 
