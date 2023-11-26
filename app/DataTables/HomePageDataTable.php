@@ -31,7 +31,10 @@ class HomePageDataTable extends DataTable
                 return $btns;
             })
             ->addColumn('media', function ($query) {
-                return $img = "<img width='80px' src='" . asset($query->media) . "'></img>";
+                if ($query->mediaType == 'image')
+                    return $img = "<img width='200px' src='" . asset($query->media) . "'></img>";
+                elseif ($query->mediaType == 'video')
+                    return $video = "<video width='200px' controls><source src='" . asset($query->media) . "' type='video/mp4'>Your browser does not support the video tag.</video>";
             })
             ->rawColumns(['media', 'action'])
             ->setRowId('id');

@@ -8,7 +8,7 @@
                     <h4>Manage Home Page</h4>
                     <a href="{{ route('home-page.create') }}" class="mb-1 btn btn-outline-primary">
                         <i class=" mdi mdi-checkbox-marked-outline mr-1"></i>
-                        Create Event
+                        Create Home Page Slider
                     </a>
                 </div>
                 <div class="card-body table-responsive">

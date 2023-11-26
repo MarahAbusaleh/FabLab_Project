@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('role');
             $table->string('name');
+            $table->string('role');
             $table->string('email');
             $table->string('image')->nullable()->default('img/defult-team.jpg');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

@@ -12,26 +12,24 @@
                 $hasVideo = true;
             @endphp
 
-         <!-- Your video container with the video -->
-<div class="video-container position-relative">
-    <video src="{{ asset($slide->media) }}" autoplay muted loop playsinline class="w-100 h-100">
-       
-    </video>
-    <div class="carousel-caption">
-        <div class="container">
-            <div class="row justify-content-start">
-                <div class="col-lg-7 text-start">
-                    <h1 class="display-1 text-white animated slideInRight mb-3">{{ $slide->header }}
-                    </h1>
-                    <p class="mb-5 animated slideInRight">{{ $slide->text }}</p>
-                    <a href=""
-                        class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a>
+            <!-- Your video container with the video -->
+            <div class="video-container position-relative">
+                <video src="{{ asset($slide->media) }}" autoplay muted loop playsinline class="w-100 h-100">
+
+                </video>
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-lg-7 text-start" style="margin-left: 100px">
+                                <h1 class="display-1 text-white animated slideInRight mb-3">{{ $slide->header }}
+                                </h1>
+                                <p class="mb-5 animated slideInRight">{{ $slide->text }}</p>
+                                <a href="" class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
         @break
     @endif
 @endforeach
@@ -46,7 +44,7 @@
                         <div class="carousel-caption">
                             <div class="container">
                                 <div class="row justify-content-start">
-                                    <div class="col-lg-7 text-start">
+                                    <div class="col-lg-7 text-start" style="margin-left: 100px">
                                         <h1 class="display-1 text-white animated slideInRight mb-3">{{ $slide->header }}
                                         </h1>
                                         <p class="mb-5 animated slideInRight">{{ $slide->text }}</p>
@@ -168,8 +166,8 @@
                 </div>
             @endforeach
         </div>
-        <div style="width: 30%;margin:auto;display:flex;justify-content:center">  <a href={{ route("events") }}
-            class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a></div>
+        <div style="width: 30%;margin:auto;display:flex;justify-content:center"> <a href={{ route('events') }}
+                class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a></div>
     </div>
 </div>
 <!-- Features End -->
