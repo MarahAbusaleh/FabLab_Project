@@ -101,7 +101,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav">
                         <a href={{ route("home") }} class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">Jo Rover</a>
+                        <a href="{{ route('jorover') }}" class="nav-item nav-link">Jo Rover</a>
                         <a href={{ route("events") }} class="nav-item nav-link">Events</a>
                         <a href={{ route("team") }} class="nav-item nav-link">Team</a>
                         <a href={{ route("roadmap") }} class="nav-item nav-link">Road Map</a>

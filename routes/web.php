@@ -24,6 +24,6 @@ Route::get('/', [HomePageController::class, 'home'])->name('home');
 Route::get('team', [TeamController::class, 'show'])->name('team');
 Route::get('roadmap', [RoadMapController::class, 'show'])->name('roadmap');
 Route::get('events', [EventsController::class, 'show'])->name('events');
-Route::get('jorover', [FeaturesPageController::class, 'show'])->name('');
+Route::get('jorover', [FeaturesPageController::class, 'show'])->name('jorover');
 Route::get('Showacomponent', [FeaturesPageController::class, 'show'])->name('Showacomponent');
 Route::get('component/{id}', [ComponentsController::class, 'show'])->name('component');
