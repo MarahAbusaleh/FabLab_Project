@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{ asset('logo-rbg.png') }}" rel="shortcut icon" />
+    <link href="{{ asset('img/jorover.png') }}" rel="shortcut icon" />
 
 
     <!-- Google Web Fonts -->

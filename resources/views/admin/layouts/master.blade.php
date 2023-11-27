@@ -35,7 +35,7 @@
     <!-- MONO CSS -->
     <link id="main-css-href" rel="stylesheet" href="{{ asset('admin/css/style.css') }}" />
     <!-- FAVICON -->
-    <link href="{{ asset('logo-rbg.png') }}" rel="shortcut icon" />
+    <link href="{{ asset('img/jorover.png') }}" rel="shortcut icon" />
     <script src="{{ asset('admin/plugins/nprogress/nprogress.js') }}"></script>
 </head>
 

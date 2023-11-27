@@ -10,8 +10,8 @@
         }, 1);
     };
     spinner();
-    
-    
+
+
     // Initiate the wowjs
     new WOW().init();
 
@@ -38,9 +38,9 @@
         $('.progress .progress-bar').each(function () {
             $(this).css("width", $(this).attr("aria-valuenow") + '%');
         });
-    }, {offset: '80%'});
-    
-    
+    }, { offset: '80%' });
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -50,7 +50,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
@@ -77,12 +77,12 @@
         loop: true,
         dots: false,
         nav: true,
-        navText : [
+        navText: [
             '<i class="bi bi-arrow-left"></i>',
             '<i class="bi bi-arrow-right"></i>'
         ]
     });
-    
+
 })(jQuery);
 
 const container = document.querySelector(".slide-container");
@@ -150,9 +150,9 @@ const animateSlide = () => {
     }
 
     const activeSlide = document.querySelector(".slide.active");
-    const slideBgImg = getComputedStyle(activeSlide).backgroundImage;
+    // const slideBgImg = getComputedStyle(activeSlide).backgroundImage;
 
-    container.style.backgroundImage = slideBgImg;
+    // container.style.backgroundImage = slideBgImg;
 };
 const autoPlay = () => (setId = setInterval(nextSlide, 3000));
 const changeSlideImg = (e) => {
@@ -179,24 +179,24 @@ btns.forEach((btn) => {
         autoPlay();
     });
 });
-slides.forEach((slide) => {
-    if (touchDevice()) {
-        slide.addEventListener("click", (e) => {
-            changeSlideImg(e);
-            clearInterval(setId);
-            autoPlay();
-        });
-    } else {
-        slide.addEventListener("mouseenter", (e) => {
-            changeSlideImg(e);
-            clearInterval(setId);
-        });
-        slide.addEventListener("mouseleave", () => {
-            clearInterval(setId);
-            autoPlay();
-        });
-    }
-});
+// slides.forEach((slide) => {
+// if (touchDevice()) {
+//     slide.addEventListener("click", (e) => {
+//         changeSlideImg(e);
+//         clearInterval(setId);
+//         autoPlay();
+//     });
+// } else {
+//     slide.addEventListener("mouseenter", (e) => {
+//         changeSlideImg(e);
+//         clearInterval(setId);
+//     });
+//     slide.addEventListener("mouseleave", () => {
+//         clearInterval(setId);
+//         autoPlay();
+//     });
+// }
+// );
 window.addEventListener("resize", () => {
     clearInterval(setId);
     positionSlides();

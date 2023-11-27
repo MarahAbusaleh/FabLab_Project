@@ -25,5 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TeamsSeeder::class);
         $this->call(RoadMapSeeder::class);
         $this->call(HomePageSeeder::class);
+        $this->call(ComponentSeeder::class);
+        $this->call(FeatureSeeder::class);
     }
 }

@@ -13,8 +13,8 @@
                   <p><i class="fa fa-envelope me-2"></i>info@example.com</p>
 
               </div>
-              <div class="col-lg-6 ps-lg-5">
-                  <div class="row g-5">
+              <div class="col-lg-3 ps-lg-5">
+                  <div class="row">
                       <div class="col-sm-6">
                           <h4 class="text-light mb-4">Quick Links</h4>
                           <a class="btn btn-link" href={{ route('home') }}>Home</a>
@@ -23,46 +23,49 @@
                           <a class="btn btn-link" href={{ route('team') }}>Team</a>
                           <a class="btn btn-link" href={{ route('roadmap') }}>Road Map</a>
                       </div>
-
-
+                  </div>
+              </div>
+              <div class="col-lg-3 ps-lg-5">
+                  <div class="row ">
+                      <img src="img/jorover.png" />
                   </div>
               </div>
           </div>
       </div>
-  </div>
-  <!-- Footer End -->
+      <!-- Footer End -->
 
 
-  <!-- Copyright Start -->
-  <div class="container-fluid copyright bg-dark text-white-50 py-4">
-      <div class="container">
-          <center>
+      <!-- Copyright Start -->
+      <div class="container-fluid copyright bg-dark text-white-50 py-4">
+          <div class="container">
+              <center>
 
-              <p class="mb-0"><a href="#">Powered by Coding Academy by Orange | Irbid</a> &copy; 2023 All Rights
-                  Reserved.</p>
+                  <p class="mb-0"><a href="#">Powered by Coding Academy by Orange | Irbid</a> &copy; 2023 All
+                      Rights
+                      Reserved.</p>
 
-          </center>
+              </center>
+          </div>
       </div>
-  </div>
-  <!-- Copyright End -->
+      <!-- Copyright End -->
 
 
-  <!-- Back to Top -->
-  <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-          class="bi bi-arrow-up"></i></a>
+      <!-- Back to Top -->
+      <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+              class="bi bi-arrow-up"></i></a>
 
 
-  <!-- JavaScript Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
-  <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
-  <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
-  <script src="{{ asset('lib/counterup/counterup.min.js') }}"></script>
-  <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
+      <!-- JavaScript Libraries -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
+      <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
+      <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
+      <script src="{{ asset('lib/counterup/counterup.min.js') }}"></script>
+      <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
-  <!-- Template Javascript -->
-  <script src="{{ asset('js/main.js') }}"></script>
-  </body>
+      <!-- Template Javascript -->
+      <script src="{{ asset('js/main.js') }}"></script>
+      </body>
 
-  </html>
+      </html>

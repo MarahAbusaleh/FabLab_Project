@@ -24,7 +24,8 @@
 
 
         <!-- FAVICON -->
-        <link href="{{ asset('admin/images/favicon.png') }}" rel="shortcut icon" />
+        <link href="{{ asset('img/jorover.png') }}" rel="shortcut icon" />
+
 
         <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
@@ -48,12 +49,14 @@
                         <div class="card-header pb-0">
                             <div class="app-brand w-100 d-flex justify-content-center border-bottom-0">
                                 <a class="w-auto pl-0" href="/index.html">
-                                    <img src="{{ asset('logo.png') }}" alt="FabLab" width="90px">
-                                    <span class="brand-name text-dark">Admin Login</span>
+                                    <img src="{{ asset('img/jorover.png') }}" alt="FabLab" width="100px">
                                 </a>
                             </div>
                         </div>
                         <div class="card-body px-5 pb-5 pt-0">
+                            <center>
+                                <h5 class="brand-name text-dark">Admin Login</h5>
+                            </center>
 
                             <h4 class="text-dark mb-6 text-center">Sign in</h4>
 
@@ -73,7 +76,7 @@
                                         <input type="password" name="password" class="form-control input-lg"
                                             placeholder="Password">
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" style="margin-left: 100px">
                                         <button type="submit" class="btn btn-primary btn-pill mb-4">Sign In</button>
                                     </div>
                                 </div>
