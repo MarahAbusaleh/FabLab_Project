@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\FeaturesDataTable;
 use App\Models\FeaturesPage;
 use App\Traits\ImageUploadTrait;
+use App\Models\Components;
 use Illuminate\Http\Request;
 
 class FeaturesPageController extends Controller
@@ -47,7 +48,9 @@ class FeaturesPageController extends Controller
 
     public function show(FeaturesPage $featuresPage)
     {
-        //
+        $Feature = FeaturesPage::all();
+        $components= Components::all();
+        return view('pages.feature',compact('Feature', 'components'));
     }
 
 
@@ -85,7 +88,6 @@ class FeaturesPageController extends Controller
         $features = FeaturesPage::findOrFail($id);
         $this->deleteImage($features->mainImage);
         $features->delete();
-
         return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
     }
 }
