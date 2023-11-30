@@ -70,18 +70,18 @@
 
 
     // Testimonial carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        items: 1,
-        loop: true,
-        dots: false,
-        nav: true,
-        navText: [
-            '<i class="bi bi-arrow-left"></i>',
-            '<i class="bi bi-arrow-right"></i>'
-        ]
-    });
+    // $(".testimonial-carousel").owlCarousel({
+    //     autoplay: true,
+    //     smartSpeed: 1000,
+    //     items: 1,
+    //     loop: true,
+    //     dots: false,
+    //     nav: true,
+    //     navText: [
+    //         '<i class="bi bi-arrow-left"></i>',
+    //         '<i class="bi bi-arrow-right"></i>'
+    //     ]
+    // });
 
 })(jQuery);
 
@@ -102,7 +102,7 @@ let y = 0;
 const touchDevice = () => "ontouchstart" in document.documentElement;
 const setTransition = (time) => {
     let i = 0;
-    for (; i < n; i++) slides[i].style.transition = `all ${time}s`;
+    for (i; i < n; i++) slides[i].style.transition = `all ${time}s`;
 };
 const positionSlides = () => {
     const r = container.offsetWidth / 2;
@@ -110,7 +110,7 @@ const positionSlides = () => {
 
     setTransition("0");
 
-    for (; i < n; i++) {
+    for (i; i < n; i++) {
         deg[i] = i * angle;
         x = Math.cos(deg[i] * (Math.PI / 180)) * r + r;
         y = Math.sin(deg[i] * (Math.PI / 180)) * r + r;
@@ -125,19 +125,19 @@ const positionSlides = () => {
 };
 const prevSlide = () => {
     let i = 0;
-    for (; i < n; i++) deg[i] -= angle;
+    for (i; i < n; i++) deg[i] -= angle;
     animateSlide();
 };
 const nextSlide = () => {
     let i = 0;
-    for (; i < n; i++) deg[i] += angle;
+    for (i; i < n; i++) deg[i] += angle;
     animateSlide();
 };
 const animateSlide = () => {
     const r = container.offsetWidth / 2;
     let i = 0;
 
-    for (; i < n; i++) {
+    for (i; i < n; i++) {
         x = Math.cos(deg[i] * (Math.PI / 180)) * r + r;
         y = Math.sin(deg[i] * (Math.PI / 180)) * r + r;
 
@@ -157,7 +157,7 @@ const animateSlide = () => {
 const autoPlay = () => (setId = setInterval(nextSlide, 3000));
 const changeSlideImg = (e) => {
     let i = 0;
-    for (; i < n; i++) slides[i].classList.remove("active");
+    for (i; i < n; i++) slides[i].classList.remove("active");
     e.currentTarget.classList.add("active");
 
     const activeSlide = document.querySelector(".slide.active");

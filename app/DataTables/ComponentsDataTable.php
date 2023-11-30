@@ -33,6 +33,13 @@ class ComponentsDataTable extends DataTable
             ->addColumn('image', function ($query) {
                 return $img = "<img width='80px' src='" . asset($query->image) . "'></img>";
             })
+            ->addColumn('type', function ($query) {
+                if ($query->type == 'joRover') {
+                    return 'JoRover';
+                } elseif ($query->type == 'remote') {
+                    return 'Remote';
+                }
+            })
             ->rawColumns(['image', 'action'])
             ->setRowId('id');
     }
@@ -84,6 +91,7 @@ class ComponentsDataTable extends DataTable
             Column::make('image'),
             Column::make('name'),
             Column::make('description'),
+            Column::make('type'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

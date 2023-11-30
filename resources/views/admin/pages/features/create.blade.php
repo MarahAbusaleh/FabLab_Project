@@ -27,10 +27,31 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="form-footer pt-5 border-top">
-                                    <button type="submit" class="btn btn-primary btn-pill">Submit</button>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="mb-5">
+                                    <label class="text-dark font-weight-medium" for="">Type</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text mdi mdi-account" id="mdi-account"></span>
+                                        </div>
+                                        <select class="form-control" name="type">
+                                            <option value="joRover" selected>
+                                                Select an option</option>
+                                            <option value="joRover"{{ old('type') === 'joRover' ? ' selected' : '' }}>
+                                                JoRover</option>
+                                            <option value="remote"{{ old('type') === 'remote' ? ' selected' : '' }}>
+                                                Remote</option>
+                                        </select>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-footer pt-5 border-top">
+                                <button type="submit" class="btn btn-primary btn-pill">Submit</button>
                             </div>
                         </div>
                     </form>

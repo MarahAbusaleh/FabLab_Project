@@ -29,6 +29,24 @@
                         <span class="nav-text">Home Page</span>
                     </a>
                 </li>
+                <li class="{{ set_active(['home-content.*']) }}">
+                    <a class="sidenav-item-link" href="{{ route('home-content.index') }}">
+                        <i class="mdi mdi-book-variant"></i>
+                        <span class="nav-text">Home Content Section</span>
+                    </a>
+                </li>
+                <li class="{{ set_active(['home-about.*']) }}">
+                    <a class="sidenav-item-link" href="{{ route('home-about.index') }}">
+                        <i class="mdi mdi-book-variant"></i>
+                        <span class="nav-text">Home About Section</span>
+                    </a>
+                </li>
+                <li class="{{ set_active(['contact-info.*']) }}">
+                    <a class="sidenav-item-link" href="{{ route('contact-info.index') }}">
+                        <i class="mdi mdi-book-variant"></i>
+                        <span class="nav-text">Contact Info</span>
+                    </a>
+                </li>
                 <li class="{{ set_active(['components.*']) }}">
                     <a class="sidenav-item-link" href="{{ route('components.index') }}">
                         <i class="mdi mdi-view-dashboard"></i>

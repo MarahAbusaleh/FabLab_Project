@@ -30,6 +30,25 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="mb-5">
+                                        <label class="text-dark font-weight-medium" for="">Type</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text mdi mdi-account" id="mdi-account"></span>
+                                            </div>
+                                            <select class="form-control" name="type">
+                                                <option value="remote"{{ $features->type === 'remote' ? ' selected' : '' }}>
+                                                    Remote</option>
+                                                <option
+                                                    value="joRover"{{ $features->type === 'joRover' ? ' selected' : '' }}>
+                                                    JoRover</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="form-footer pt-5 border-top">
                                     <button type="submit" class="btn btn-primary btn-pill">Submit</button>
                                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\TeamsDataTable;
+use App\Models\ContactInfo;
 use App\Models\Team;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
@@ -63,8 +64,8 @@ class TeamController extends Controller
     {
         $instructors = Team::where('role', 'instructor')->get();
         $students = Team::where('role', 'student')->get();
-
-        return view('pages.team', compact('instructors', 'students'));
+        $ContactInfo = ContactInfo::first();
+        return view('pages.team', compact('instructors', 'students', 'ContactInfo'));
     }
 
 

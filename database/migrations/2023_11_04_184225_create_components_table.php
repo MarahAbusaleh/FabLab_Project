@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('image')->nullable();
             $table->text('description');
+            $table->enum('type', ['joRover', 'remote'])->default('joRover');
             $table->timestamps();
         });
     }

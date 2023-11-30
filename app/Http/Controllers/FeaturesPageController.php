@@ -6,6 +6,7 @@ use App\DataTables\FeaturesDataTable;
 use App\Models\FeaturesPage;
 use App\Traits\ImageUploadTrait;
 use App\Models\Components;
+use App\Models\ContactInfo;
 use Illuminate\Http\Request;
 
 class FeaturesPageController extends Controller
@@ -28,6 +29,7 @@ class FeaturesPageController extends Controller
     {
         $request->validate([
             'mainImage' => ['required', 'max:4196', 'image'],
+            'type' => ['required'],
         ]);
 
         $features = new FeaturesPage();
@@ -35,6 +37,7 @@ class FeaturesPageController extends Controller
         $imagePath = $this->uploadImage($request, 'mainImage', 'uploads');
 
         $features->mainImage = $imagePath;
+        $features->type = $request->type;
         $features->save();
 
         $notification = array(
@@ -48,9 +51,11 @@ class FeaturesPageController extends Controller
 
     public function show(FeaturesPage $featuresPage)
     {
-        $Feature = FeaturesPage::all();
-        $components= Components::all();
-        return view('pages.feature',compact('Feature', 'components'));
+        $JoRover = FeaturesPage::where('type', 'joRover')->first();
+        $Remote = FeaturesPage::where('type', 'remote')->first();
+        $components = Components::all();
+        $ContactInfo = ContactInfo::first();
+        return view('pages.feature', compact('JoRover', 'Remote', 'components', 'ContactInfo'));
     }
 
 
@@ -64,7 +69,8 @@ class FeaturesPageController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'mainImage' => ['nullable', 'max:4196', 'image'],
+            'mainImage' => ['nullable', 'image'],
+            'type' => ['nullable'],
         ]);
 
         $features = FeaturesPage::findOrFail($id);
@@ -72,6 +78,7 @@ class FeaturesPageController extends Controller
         $imagePath = $this->updateImage($request, 'mainImage', 'uploads', $features->image);
 
         $features->mainImage = empty(!$imagePath) ? $imagePath : $features->mainImage;
+        $features->type = $request->type;
         $features->save();
 
         $notification = array(

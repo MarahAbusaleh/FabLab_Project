@@ -36,7 +36,15 @@ class HomePageDataTable extends DataTable
                 elseif ($query->mediaType == 'video')
                     return $video = "<video width='200px' controls><source src='" . asset($query->media) . "' type='video/mp4'>Your browser does not support the video tag.</video>";
             })
-            ->rawColumns(['media', 'action'])
+            ->addColumn('status', function ($query) {
+                $checked = $query->status == 'on' ? 'on' : 'off';
+                if ($checked == 'on') {
+                    return "<span class='badge badge-success'>Active</span>";
+                } else {
+                    return "<span class='badge badge-danger'>Inactive</span>";
+                }
+            })
+            ->rawColumns(['media', 'action', 'status'])
             ->setRowId('id');
     }
 
@@ -88,6 +96,7 @@ class HomePageDataTable extends DataTable
             Column::make('mediaType'),
             Column::make('text'),
             Column::make('header'),
+            Column::make('status'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

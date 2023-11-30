@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\HomePageDataTable;
+use App\Models\ContactInfo;
 use App\Models\Events;
+use App\Models\HomeAbout;
+use App\Models\HomeContent;
 use App\Models\HomePage;
 use App\Models\Team;
 use App\Traits\ImageUploadTrait;
@@ -19,11 +22,14 @@ class HomePageController extends Controller
      */
     public function home()
     {
-        $slider = HomePage::all();
+        $slider = HomePage::where('status', 'on')->get();
         $events = Events::all();
-        $instructors = Team::where("role","instructor")->get();
-        $students = Team::where("role","student")->get();
-        return view("pages.index", compact("slider","events","instructors","students"));
+        $instructors = Team::where("role", "instructor")->get();
+        $students = Team::where("role", "student")->get();
+        $HomeContent = HomeContent::first();
+        $HomeAbout = HomeAbout::first();
+        $ContactInfo = ContactInfo::first();
+        return view("pages.index", compact("slider", "events", "instructors", "students", "HomeContent", "HomeAbout", "ContactInfo"));
     }
     public function index(HomePageDataTable $dataTable)
     {
@@ -49,10 +55,11 @@ class HomePageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'media' => ['required'  ],
+            'media' => ['required'],
             'mediaType' => ['required'],
             'header' => ['required', 'max:20'],
             'text' => ['required', 'max:50'],
+            'status' => ['required'],
         ]);
 
         $homePage = new HomePage();
@@ -63,6 +70,8 @@ class HomePageController extends Controller
         $homePage->mediaType = $request->mediaType;
         $homePage->header = $request->header;
         $homePage->text = $request->text;
+        $homePage->status = $request->status;
+
         $homePage->save();
 
         $notification = array(
@@ -110,6 +119,7 @@ class HomePageController extends Controller
             'mediaType' => ['nullable'],
             'header' => ['required', 'max:20'],
             'text' => ['required', 'max:50'],
+            'status' => ['required'],
         ]);
 
         $homePage = HomePage::findOrFail($id);
@@ -120,6 +130,8 @@ class HomePageController extends Controller
         $homePage->header = $request->header;
         $homePage->mediaType = $request->mediaType;
         $homePage->text = $request->text;
+        $homePage->status = $request->status;
+
         $homePage->save();
 
         $notification = array(

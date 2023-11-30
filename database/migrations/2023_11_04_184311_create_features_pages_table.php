@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('features_pages', function (Blueprint $table) {
             $table->id();
             $table->string('mainImage');
+            $table->enum('type', ['joRover', 'remote'])->default('joRover');
             $table->timestamps();
         });
     }

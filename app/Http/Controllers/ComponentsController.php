@@ -29,6 +29,7 @@ class ComponentsController extends Controller
             'image' => ['required', 'max:4196', 'image'],
             'name' => ['required', 'max:50'],
             'description' => ['required'],
+            'type' => ['required'],
         ]);
 
         $component = new Components();
@@ -36,6 +37,7 @@ class ComponentsController extends Controller
         $imagePath = $this->uploadImage($request, 'image', 'uploads');
         $component->image = $imagePath;
         $component->name = $request->name;
+        $component->type = $request->type;
         $component->description = $request->description;
         $component->save();
 
@@ -68,6 +70,7 @@ class ComponentsController extends Controller
             'image' => ['nullable', 'max:4196', 'image'],
             'name' => ['required', 'max:50'],
             'description' => ['required'],
+            'type' => ['nullable'],
         ]);
 
         $component = Components::findOrFail($id);
@@ -76,6 +79,7 @@ class ComponentsController extends Controller
 
         $component->image = empty(!$imagePath) ? $imagePath : $component->image;
         $component->name = $request->name;
+        $component->type = $request->type;
         $component->description = $request->description;
         $component->save();
 

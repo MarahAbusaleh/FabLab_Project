@@ -2,59 +2,51 @@
 @section('content')
     <!-- Carousel Start -->
 
-    @php
-        $hasVideo = false;
-    @endphp
 
-    @foreach ($slider as $key => $slide)
-        @if ($slide->mediaType === 'video')
-            @php
-                $hasVideo = true;
-            @endphp
-
-            <!-- Your video container with the video -->
-            <div class="video-container position-relative">
-                <video src="{{ asset($slide->media) }}" autoplay muted loop playsinline class="w-100 h-100">
-
-                </video>
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-lg-7 text-start" style="margin-left: 100px">
-                                <h1 class="display-1 text-white animated slideInRight mb-3">{{ $slide->header }}
-                                </h1>
-                                <p class="mb-5 animated slideInRight">{{ $slide->text }}</p>
-                                <a href="" class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @break
-    @endif
-@endforeach
-
-@if (!$hasVideo)
     <div class="container-fluid header-carousel px-0 mb-5">
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @foreach ($slider as $key => $slide)
-                    <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
-                        <img class="w-100" src="{{ asset($slide->media) }}" alt="Image">
-                        <div class="carousel-caption">
-                            <div class="container">
-                                <div class="row justify-content-start">
-                                    <div class="col-lg-7 text-start" style="margin-left: 100px">
-                                        <h1 class="display-1 text-white animated slideInRight mb-3">{{ $slide->header }}
-                                        </h1>
-                                        <p class="mb-5 animated slideInRight">{{ $slide->text }}</p>
-                                        <a href=""
-                                            class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a>
+                    @if ($slide->mediaType === 'video')
+                        <!-- Video Slide -->
+                        <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                            <div class="video-container position-relative">
+                                <video src="{{ asset($slide->media) }}" autoplay muted loop playsinline
+                                    class="w-100 h-100"></video>
+                                <div class="carousel-caption">
+                                    <div class="container">
+                                        <div class="row justify-content-start">
+                                            <div class="col-lg-7 text-start" style="margin-left: 100px">
+                                                <h1 class="display-1 text-white animated slideInRight mb-3">
+                                                    {{ $slide->header }}</h1>
+                                                <p class="mb-5 animated slideInRight">{{ $slide->text }}</p>
+                                                <a href=""
+                                                    class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @elseif ($slide->mediaType === 'image')
+                        <!-- Image Slide -->
+                        <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                            <img class="w-100" src="{{ asset($slide->media) }}" alt="Image">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    <div class="row justify-content-start">
+                                        <div class="col-lg-7 text-start" style="margin-left: 100px">
+                                            <h1 class="display-1 text-white animated slideInRight mb-3">{{ $slide->header }}
+                                            </h1>
+                                            <p class="mb-5 animated slideInRight">{{ $slide->text }}</p>
+                                            <a href=""
+                                                class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 @endforeach
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
@@ -67,110 +59,132 @@
             </button>
         </div>
     </div>
-@endif
-
-</div>
-<!-- Carousel End -->
 
 
-<!-- About Start -->
-<div class="container-fluid py-5">
-    <div class="container">
-        <div class="row g-5">
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                <div class="row g-0">
-                    <div class="col-6">
-                        <img class="img-fluid" src="img/about-1.jpg">
-                    </div>
-                    <div class="col-6">
-                        <img class="img-fluid" src="img/about-2.jpg">
-                    </div>
-                    <div class="col-6">
-                        <img class="img-fluid" src="img/about-3.jpg">
-                    </div>
-                    <div class="col-6">
-                        <div
-                            class="bg-primary w-100 h-100 mt-n5 ms-n5 d-flex flex-column align-items-center justify-content-center">
-                            <div class="icon-box-light">
-                                <i class="bi bi-award text-dark"></i>
+
+
+    </div>
+    <!-- Carousel End -->
+
+    <div class="container-fluid container-team py-5">
+        <div class="container pb-5">
+            <h1> About JoRover </h1>
+            <br>
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="{{ asset($HomeAbout->image) }}" width="100%" />
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-6 mb-4">{{ $HomeAbout->header }}</h1>
+                    <p class="mb-4">
+                        {{ $HomeContent->description }}
+                    </p>
+                    <div style="width: 30%;margin:auto;display:flex;justify-content:center"> <a href={{ route('jorover') }}
+                            class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="row g-0">
+                        <div class="col-6">
+                            <img class="img-fluid" src="{{ asset($HomeContent->image1) }}">
+                        </div>
+                        <div class="col-6">
+                            <img class="img-fluid" src="{{ asset($HomeContent->image2) }}">
+                        </div>
+                        <div class="col-6">
+                            <img class="img-fluid" src="{{ asset($HomeContent->image3) }}">
+                        </div>
+                        <div class="col-6">
+                            <div
+                                class="bg-primary w-100 h-100 mt-n5 ms-n5 d-flex flex-column align-items-center justify-content-center">
+                                <div class="icon-box-light">
+                                    <i class="bi bi-award text-dark"></i>
+                                </div>
+                                <h1 class="display-1 text-white mb-0" data-toggle="counter-up">{{ $events->count() }}
+                                </h1>
+                                <small class="fs-5 text-white">Events</small>
                             </div>
-                            <h1 class="display-1 text-white mb-0" data-toggle="counter-up">{{ $events->count() }}</h1>
-                            <small class="fs-5 text-white">Events</small>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <h1 class="display-6 mb-4">Trusted Lab Experts and Latest Lab Technologies</h1>
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue,
-                    iaculis id elit eget, ultrices pulvinar tortor. Quisque vel lorem porttitor, malesuada arcu quis,
-                    fringilla risus. Pellentesque eu consequat augue.</p>
-                <div class="row g-4 g-sm-5 justify-content-center">
-                    <div class="col-sm-6">
-                        <div class="about-fact btn-square flex-column rounded-circle bg-primary ms-sm-auto">
-                            <p class="text-white mb-0">Instructors</p>
-                            <h1 class="text-white mb-0" data-toggle="counter-up">{{ $instructors->count() }}</h1>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="display-6 mb-4">{{ $HomeContent->header }}</h1>
+                    <p class="mb-4">
+                        {{ $HomeContent->description }}
+                    </p>
+                    <div class="row g-4 g-sm-5 justify-content-center">
+                        <div class="col-sm-6">
+                            <div class="about-fact btn-square flex-column rounded-circle bg-primary ms-sm-auto">
+                                <p class="text-white mb-0">Instructors</p>
+                                <h1 class="text-white mb-0" data-toggle="counter-up">{{ $instructors->count() }}</h1>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6 text-start">
-                        <div class="about-fact btn-square flex-column rounded-circle bg-secondary me-sm-auto">
-                            <p class="text-white mb-0">Students</p>
-                            <h1 class="text-white mb-0" data-toggle="counter-up">{{ $students->count() }}</h1>
+                        <div class="col-sm-6 text-start">
+                            <div class="about-fact btn-square flex-column rounded-circle bg-secondary me-sm-auto">
+                                <p class="text-white mb-0">Students</p>
+                                <h1 class="text-white mb-0" data-toggle="counter-up">{{ $students->count() }}</h1>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="about-fact mt-n130 btn-square flex-column rounded-circle bg-dark mx-sm-auto">
-                            <p class="text-white mb-0">Happy Clients</p>
-                            <h1 class="text-white mb-0" data-toggle="counter-up">9999</h1>
+                        <div class="col-sm-6">
+                            <div class="about-fact mt-n130 btn-square flex-column rounded-circle bg-dark mx-sm-auto">
+                                <p class="text-white mb-0">Happy Clients</p>
+                                <h1 class="text-white mb-0" data-toggle="counter-up">9999</h1>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- About End -->
+    <!-- About End -->
 
 
-<!-- Features Start -->
-<div class="container-fluid container-team py-5">
-    <div class="container pb-5">
-        <h1> Events </h1>
-        <br>
-        <div class="row">
-            @foreach ($events->reverse()->take(3) as $event)
-                <div class="col-lg-4 col-md-6  ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <img src="{{ $event->image }}"class="block-20" />
-                        </a>
-                        <div class="text p-4 float-right d-block">
-                            @php
-                                $carbonDate = \Carbon\Carbon::parse($event->date);
-                            @endphp
-                            <div class="d-flex align-items-center pt-2 mb-4">
-                                <div class="one">
-                                    <span class="day">{{ $carbonDate->format('d') }}</span>
+    <!-- Features Start -->
+    <div class="container-fluid container-team py-5">
+        <div class="container pb-5">
+            <h1> Events </h1>
+            <br>
+            <div class="row">
+                @foreach ($events->reverse()->take(3) as $event)
+                    <div class="col-lg-4 col-md-6  ftco-animate">
+                        <div class="blog-entry justify-content-end">
+                            <img src="{{ $event->image }}"class="block-20" />
+                            </a>
+                            <div class="text p-4 float-right d-block">
+                                @php
+                                    $carbonDate = \Carbon\Carbon::parse($event->date);
+                                @endphp
+                                <div class="d-flex align-items-center pt-2 mb-4">
+                                    <div class="one">
+                                        <span class="day">{{ $carbonDate->format('d') }}</span>
+                                    </div>
+                                    <div class="two">
+                                        <span class="yr">{{ $carbonDate->format('Y') }}</span>
+                                        <span class="mos">{{ $carbonDate->format('F') }}</span>
+                                    </div>
                                 </div>
-                                <div class="two">
-                                    <span class="yr">{{ $carbonDate->format('Y') }}</span>
-                                    <span class="mos">{{ $carbonDate->format('F') }}</span>
-                                </div>
+                                <h3 class="heading mt-2"><a href="#">{{ $event->name }}</a>
+                                </h3>
+                                <p>
+                                    {{ $event->description }}
+                                </p>
                             </div>
-                            <h3 class="heading mt-2"><a href="#">{{ $event->name }}</a>
-                            </h3>
-                            <p>
-                                {{ $event->description }}
-                            </p>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
+            <div style="width: 30%;margin:auto;display:flex;justify-content:center"> <a href={{ route('events') }}
+                    class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a></div>
         </div>
-        <div style="width: 30%;margin:auto;display:flex;justify-content:center"> <a href={{ route('events') }}
-                class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a></div>
     </div>
-</div>
-<!-- Features End -->
+    <!-- Features End -->
 
 
 
@@ -179,8 +193,8 @@
 
 
 
-<!-- Service Start -->
-<div class="container-fluid container-service py-5">
+    <!-- Service Start -->
+    {{-- <div class="container-fluid container-service py-5">
     <div class="container pt-5">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h1 class="display-6 mb-3">Reliable & High-Quality Laboratory Service</h1>
@@ -286,14 +300,14 @@
             </div>
         </div>
     </div>
-</div>
-<!-- Service End -->
+</div> --}}
+    <!-- Service End -->
 
 
 
 
-<!-- Team Start -->
-{{-- <div class="container-fluid container-team py-5">
+    <!-- Team Start -->
+    {{-- <div class="container-fluid container-team py-5">
     <div class="container pb-5">
         <div class="row g-5 align-items-center mb-5">
             <div class="col-md-6 wow fadeIn" data-wow-delay="0.3s">
@@ -408,8 +422,5 @@
         </div>
     </div>
 </div> --}}
-<!-- Team End -->
-
-
-
+    <!-- Team End -->
 @endsection

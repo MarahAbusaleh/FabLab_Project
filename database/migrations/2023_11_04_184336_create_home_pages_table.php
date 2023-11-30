@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('header');
             $table->text('text');
             $table->string('media')->nullable();
+            $table->text('status')->nullable();
             $table->enum('mediaType', ['image', 'video'])->default('image');
             $table->timestamps();
         });

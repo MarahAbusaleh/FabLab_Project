@@ -13,7 +13,14 @@ class FeatureSeeder extends Seeder
     {
         DB::table('features_pages')->insert([
             [
-                'mainImage' => 'img/A1 (Info.).png'
+                'mainImage' => 'img/Components/A1.png',
+                'type' => 'joRover'
+            ]
+        ]);
+        DB::table('features_pages')->insert([
+            [
+                'mainImage' => 'img/Components/A2.jpg',
+                'type' => 'remote'
             ]
         ]);
     }

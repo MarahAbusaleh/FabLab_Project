@@ -28,8 +28,15 @@ class FeaturesDataTable extends DataTable
             ->addColumn('mainImage', function ($query) {
                 return "<img width='100px' src='" . asset($query->mainImage) . "'></img>";
             })
+            ->addColumn('type', function ($query) {
+                if ($query->type == 'joRover') {
+                    return 'JoRover';
+                } elseif ($query->type == 'remote') {
+                    return 'Remote';
+                }
+            })
 
-            ->rawColumns(['action', 'mainImage'])
+            ->rawColumns(['action', 'mainImage', 'type'])
             ->setRowId('id');
     }
 
@@ -63,8 +70,8 @@ class FeaturesDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id'),
             Column::make('mainImage'),
+            Column::make('type'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\RoadMapDataTable;
+use App\Models\ContactInfo;
 use App\Models\RoadMap;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
@@ -49,7 +50,8 @@ class RoadMapController extends Controller
     public function show(RoadMap $roadMap)
     {
         $roadmap = RoadMap::first();
-        return view('pages.roadmap', compact('roadmap'));
+        $ContactInfo = ContactInfo::first();
+        return view('pages.roadmap', compact('roadmap', 'ContactInfo'));
     }
 
 

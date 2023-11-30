@@ -6,11 +6,8 @@
                   <a href="index.html" class="navbar-brand">
                       <h1 class="h1 text-primary mb-0">JO<span class="text-white">ROVER</span></h1>
                   </a>
-                  <p class="fs-5 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue,
-                      iaculis id elit eget, ultrices pulvinar tortor.</p>
-                  <p><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</p>
-                  <p><i class="fa fa-phone-alt me-2"></i>+012 345 67890</p>
-                  <p><i class="fa fa-envelope me-2"></i>info@example.com</p>
+                  <p><i class="fa fa-phone-alt me-2"></i>{{ $ContactInfo->phone }}</p>
+                  <p><i class="fa fa-envelope me-2"></i>{{ $ContactInfo->email }}</p>
 
               </div>
               <div class="col-lg-3 ps-lg-5">

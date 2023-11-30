@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\EventsDataTable;
+use App\Models\ContactInfo;
 use App\Models\Events;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
@@ -54,7 +55,8 @@ class EventsController extends Controller
     public function show(Events $events)
     {
         $events = Events::all();
-        return view('pages.events', compact('events'));
+        $ContactInfo = ContactInfo::first();
+        return view('pages.events', compact('events', 'ContactInfo'));
     }
 
 

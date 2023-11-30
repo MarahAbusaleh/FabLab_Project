@@ -17,18 +17,21 @@ class HomePageSeeder extends Seeder
                 'text' => '	Fab Lab | Orange Coding Academy Irbid 1',
                 'media' => 'img\fablab_slider.jpg',
                 'mediaType' => 'image',
+                'status' => 'off'
             ],
             [
                 'header' => 'Jo Rover 2',
                 'text' => '	Fab Lab | Orange Coding Academy Irbid 2',
                 'media' => 'img\fablab_slider.jpg',
                 'mediaType' => 'image',
+                'status' => 'off'
             ],
             [
                 'header' => 'Jo Rover 3',
                 'text' => '	Fab Lab | Orange Coding Academy Irbid 3',
                 'media' => 'img\video_silder.mp4',
                 'mediaType' => 'video',
+                'status' => 'on'
             ],
         ]);
     }

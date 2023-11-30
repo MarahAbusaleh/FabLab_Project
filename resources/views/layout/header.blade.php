@@ -54,7 +54,7 @@
                     <i class="bi bi-telephone-inbound fs-2"></i>
                     <div class="ms-3">
                         <h5 class="text-white mb-0">Call Now</h5>
-                        <span>+012 345 6789</span>
+                        <span>{{ $ContactInfo->phone }}</span>
                     </div>
                 </div>
                 <a href="index.html" class="h1 text-white mb-0">JO<span class="text-dark">ROVER</span></a>
@@ -62,7 +62,7 @@
                     <i class="bi bi-envelope fs-2"></i>
                     <div class="ms-3">
                         <h5 class="text-white mb-0">Mail Now</h5>
-                        <span>info@example.com</span>
+                        <span>{{ $ContactInfo->email }}</span>
                     </div>
                 </div>
             </div>
@@ -92,12 +92,12 @@
 
                     </div>
                     <div class="ms-auto d-none d-lg-flex">
-                        <a class="btn btn-sm-square btn-primary ms-2" href=""><i
+                        <a class="btn btn-sm-square btn-primary ms-2" href="{{ $ContactInfo->facebook }}"><i
                                 class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-sm-square btn-primary ms-2" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-sm-square btn-primary ms-2" href=""><i
-                                class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-sm-square btn-primary ms-2" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-sm-square btn-primary ms-2" href="{{ $ContactInfo->twitter }}"><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-sm-square btn-primary ms-2" href="{{ $ContactInfo->youtube }}"><i
+                                class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </nav>

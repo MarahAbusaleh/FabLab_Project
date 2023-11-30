@@ -73,6 +73,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-xl-12">
+                            <div class="mb-5">
+                                <label class="text-dark font-weight-medium">Status</label>
+                                <div class="input-group mb-3">
+
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="statusSwitch" name="status"
+                                            {{ old('status') ? 'Checked' : '' }} checked>
+                                        <label class="custom-control-label" for="statusSwitch"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="form-footer pt-5 border-top">
                                 <button type="submit" class="btn btn-primary btn-pill">Submit</button>
