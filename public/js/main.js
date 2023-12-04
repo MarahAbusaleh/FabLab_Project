@@ -115,8 +115,8 @@ const positionSlides = () => {
         x = Math.cos(deg[i] * (Math.PI / 180)) * r + r;
         y = Math.sin(deg[i] * (Math.PI / 180)) * r + r;
 
-        // slides[i].style.top = `${~~y}px`;
-        // slides[i].style.left = `${~~x}px`;
+        slides[i].style.top = `${~~y}px`;
+        slides[i].style.left = `${~~x}px`;
     }
 
     setTimeout(() => {
@@ -154,17 +154,8 @@ const animateSlide = () => {
 
     // container.style.backgroundImage = slideBgImg;
 };
-const autoPlay = () => (setId = setInterval(nextSlide, 3000));
-const changeSlideImg = (e) => {
-    let i = 0;
-    for (i; i < n; i++) slides[i].classList.remove("active");
-    e.currentTarget.classList.add("active");
-
-    const activeSlide = document.querySelector(".slide.active");
-    const slideBgImg = getComputedStyle(activeSlide).backgroundImage;
-
-    container.style.backgroundImage = slideBgImg;
-};
+const autoPlay = () => (setId = 0);
+    
 
 positionSlides();
 nextSlide();
@@ -179,26 +170,4 @@ btns.forEach((btn) => {
         autoPlay();
     });
 });
-// slides.forEach((slide) => {
-// if (touchDevice()) {
-//     slide.addEventListener("click", (e) => {
-//         changeSlideImg(e);
-//         clearInterval(setId);
-//         autoPlay();
-//     });
-// } else {
-//     slide.addEventListener("mouseenter", (e) => {
-//         changeSlideImg(e);
-//         clearInterval(setId);
-//     });
-//     slide.addEventListener("mouseleave", () => {
-//         clearInterval(setId);
-//         autoPlay();
-//     });
-// }
-// );
-window.addEventListener("resize", () => {
-    clearInterval(setId);
-    positionSlides();
-    autoPlay();
-});
+

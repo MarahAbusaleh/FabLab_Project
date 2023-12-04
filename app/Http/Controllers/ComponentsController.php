@@ -15,6 +15,15 @@ class ComponentsController extends Controller
     {
         return $dataTable->render('admin.pages.components.index');
     }
+public function getModalContent($componentId) {
+     $JoRover = FeaturesPage::where('type', 'joRover')->first();
+        $Remote = FeaturesPage::where('type', 'remote')->first();
+        $components = Components::all();
+        $ContactInfo = ContactInfo::first();
+        return view('pages.feature', compact('JoRover', 'Remote', 'components', 'ContactInfo'));
+    $component = Components::findorfail($componentId);
+    return view('pages.feature', compact('component'));
+}
 
 
     public function create()

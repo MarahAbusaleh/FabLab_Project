@@ -27,3 +27,5 @@ Route::get('events', [EventsController::class, 'show'])->name('events');
 Route::get('jorover', [FeaturesPageController::class, 'show'])->name('jorover');
 Route::get('Showacomponent', [FeaturesPageController::class, 'show'])->name('Showacomponent');
 Route::get('component/{id}', [ComponentsController::class, 'show'])->name('component');
+Route::get('/get-modal-content/{componentId}', [FeaturesPageController::class, 'getModalContent']);
+

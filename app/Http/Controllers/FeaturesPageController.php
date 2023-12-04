@@ -57,7 +57,17 @@ class FeaturesPageController extends Controller
         $ContactInfo = ContactInfo::first();
         return view('pages.feature', compact('JoRover', 'Remote', 'components', 'ContactInfo'));
     }
+ public function getModalContent(Request $request, $componentId)
+{
+    $component = Components::findorfail($componentId);
 
+    $modalContent = view('pages.modal_content', compact('component'))->render();
+
+    return response()->json([
+        'success' => true,
+        'modalContent' => $modalContent,
+    ]);
+}
 
     public function edit(FeaturesPage $featuresPage, $id)
     {

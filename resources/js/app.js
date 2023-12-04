@@ -1,5 +1,5 @@
 import './bootstrap';
-
+import 'lazysizes';
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;

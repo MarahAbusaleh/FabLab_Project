@@ -36,9 +36,17 @@
             margin-left: -3vw !important;
             margin-top: -3vw !important;
         }
+        .content{
+display: flex; justify-content: space-between;
+        }
+        @media (max-width:1260px){
+                  .content{
+flex-direction: column;
+        }
+        }
     </style>
-    <div class="container">
-        <div style="display: flex; justify-content: space-between;">
+    <div class="container ">
+        <div  class="content">
             <div class="slide-container" style="background-image: url('{{ asset($JoRover->mainImage) }}')">
                 @foreach ($components as $component)
                     @if ($component->type == 'joRover')
@@ -67,6 +75,7 @@
                     </div>
                 @endforeach
             </div>
+            <div style="margin: 0 50px"></div>
             <div class="slide-container" style="background-image: url('{{ asset($Remote->mainImage) }}')">
                 @foreach ($components as $component)
                     @if ($component->type == 'remote')
