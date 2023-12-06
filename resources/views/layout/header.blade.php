@@ -42,26 +42,6 @@
     <!-- Spinner End -->
 
 
-    <!-- Topbar Start -->
-    <div class="container-fluid py-2 d-none d-lg-flex">
-        <div class="container">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <small class="me-3"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-                    <small class="me-3"><i class="fa fa-clock me-2"></i>Mon-Sat 09am-5pm, Sun Closed</small>
-                </div>
-                <nav class="breadcrumb mb-0">
-                    <a class="breadcrumb-item small text-body" href="#">Career</a>
-                    <a class="breadcrumb-item small text-body" href="#">Support</a>
-                    <a class="breadcrumb-item small text-body" href="#">Terms</a>
-                    <a class="breadcrumb-item small text-body" href="#">FAQs</a>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
-
-
     <!-- Brand Start -->
     <div class="container-fluid bg-primary text-white pt-4 pb-5 d-none d-lg-flex">
         <div class="container pb-2">
@@ -70,15 +50,15 @@
                     <i class="bi bi-telephone-inbound fs-2"></i>
                     <div class="ms-3">
                         <h5 class="text-white mb-0">Call Now</h5>
-                        <span>+012 345 6789</span>
+                        <span>{{ $ContactInfo->phone }}</span>
                     </div>
                 </div>
-                <a href="index.html" class="h1 text-white mb-0">Lab<span class="text-dark">sky</span></a>
+                <a href="index.html" class="h1 text-white mb-0">JO<span class="text-dark">ROVER</span></a>
                 <div class="d-flex">
                     <i class="bi bi-envelope fs-2"></i>
                     <div class="ms-3">
                         <h5 class="text-white mb-0">Mail Now</h5>
-                        <span>info@example.com</span>
+                        <span>{{ $ContactInfo->email }}</span>
                     </div>
                 </div>
             </div>
@@ -100,11 +80,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav">
-                        <a href={{ route("home") }} class="nav-item nav-link active">Home</a>
-                        <a href="{{ route('jorover') }}" class="nav-item nav-link">Jo Rover</a>
-                        <a href={{ route("events") }} class="nav-item nav-link">Events</a>
-                        <a href={{ route("team") }} class="nav-item nav-link">Team</a>
-                        <a href={{ route("roadmap") }} class="nav-item nav-link">Road Map</a>
+                        <a href={{ route("home") }} class="nav-item nav-link  @if (request()->is('/')) active @endif">Home</a>
+                        <a href="{{ route('jorover') }}" class="nav-item nav-link @if (request()->is('jorover')) active @endif @if (request()->is('')) active @endif">Jo Rover</a>
+                        <a href={{ route("events") }} class="nav-item nav-link @if (request()->is('events')) active @endif">Events</a>
+                        <a href={{ route("team") }} class="nav-item nav-link @if (request()->is('team')) active @endif">Team</a>
+                        <a href={{ route("roadmap") }} class="nav-item nav-link @if (request()->is('roadmap')) active @endif">Road Map</a>
                         
                     </div>
                     <div class="ms-auto d-none d-lg-flex">
