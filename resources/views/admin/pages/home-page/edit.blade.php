@@ -15,7 +15,7 @@
                             <div class="col-xl-2">
                                 <div class="mb-5">
                                     <img id="showImage" width="100px"
-                                        src="{{ $homePage->image == '' ? url('no-image.jpg') : asset($homePage->image) }}">
+                                        src="{{ $homePage->media == '' ? url('no-image.jpg') : asset($homePage->media) }}">
                                 </div>
                             </div>
                             <div class="col-xl-5">
@@ -25,7 +25,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text mdi mdi-folder-image" id="mdi-account"></span>
                                         </div>
-                                        <input type="file" class="form-control" name="image" id="image">
+                                        <input type="file" class="form-control" name="media" id="image">
                                     </div>
                                 </div>
                             </div>

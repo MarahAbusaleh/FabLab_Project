@@ -8,7 +8,7 @@
                     <h2>Edit Home About Section</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('home-content.update', $homeAbout->id) }}" method="POST"
+                    <form action="{{ route('home-about.update', $homeAbout->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')

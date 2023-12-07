@@ -61,8 +61,8 @@ class HomeAboutController extends Controller
 
     public function edit($id)
     {
-        $HomeAbout = HomeAbout::findOrFail($id);
-        return view('admin.pages.home-about.edit', compact('HomeAbout'));
+        $homeAbout = HomeAbout::findOrFail($id);
+        return view('admin.pages.home-about.edit', compact('homeAbout'));
     }
 
 
@@ -74,7 +74,7 @@ class HomeAboutController extends Controller
             'description' => ['required'],
         ]);
 
-        $homeAbout = homeAbout::findOrFail($id);
+        $homeAbout = HomeAbout::findOrFail($id);
 
         $imagePath = $this->updateImage($request, 'image', 'uploads', $homeAbout->image);
 

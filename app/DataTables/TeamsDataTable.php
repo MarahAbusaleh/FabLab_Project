@@ -82,7 +82,7 @@ class TeamsDataTable extends DataTable
         return [
             Column::make('name'),
             Column::make('email'),
-            Column::make('description'),
+            // Column::make('description'),
             Column::make('role'),
             Column::make('image'),
             Column::computed('action')

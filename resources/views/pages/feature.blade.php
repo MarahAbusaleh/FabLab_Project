@@ -36,17 +36,20 @@
             margin-left: -3vw !important;
             margin-top: -3vw !important;
         }
-        .content{
-display: flex; justify-content: space-between;
+
+        .content {
+            display: flex;
+            justify-content: space-between;
         }
-        @media (max-width:1260px){
-                  .content{
-flex-direction: column;
-        }
+
+        @media (max-width:1260px) {
+            .content {
+                flex-direction: column;
+            }
         }
     </style>
     <div class="container ">
-        <div  class="content">
+        <div class="content">
             <div class="slide-container" style="background-image: url('{{ asset($JoRover->mainImage) }}')">
                 @foreach ($components as $component)
                     @if ($component->type == 'joRover')
@@ -58,7 +61,7 @@ flex-direction: column;
 
                     <!-- Modal for each component -->
                     <div class="modal fade" id="imageModal{{ $component->id }}" tabindex="-1" role="dialog"
-                        aria-labelledby="imageModalLabel" aria-hidden="true">
+                        aria-labelledby="imageModalLabel" aria-hidden="true" style="margin-top:50px !important">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-body">
@@ -87,7 +90,7 @@ flex-direction: column;
 
                     <!-- Modal for each component -->
                     <div class="modal fade" id="imageModal{{ $component->id }}" tabindex="-1" role="dialog"
-                        aria-labelledby="imageModalLabel" aria-hidden="true">
+                        aria-labelledby="imageModalLabel" aria-hidden="true" style="margin-top:50px !important">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-body">

@@ -122,17 +122,16 @@ class HomePageController extends Controller
             'status' => ['required'],
         ]);
 
+        $data = $request->except(['_token', '_method']);
+
         $homePage = HomePage::findOrFail($id);
 
         $imagePath = $this->updateImage($request, 'media', 'uploads', $homePage->media);
 
-        $homePage->media = empty(!$imagePath) ? $imagePath : $homePage->media;
-        $homePage->header = $request->header;
-        $homePage->mediaType = $request->mediaType;
-        $homePage->text = $request->text;
-        $homePage->status = $request->status;
+        $data['media'] = empty(!$imagePath) ? $imagePath : $homePage->media;
 
-        $homePage->save();
+        HomePage::where('id', $id)->update($data);
+
 
         $notification = array(
             'message' => 'Home Page Updated Successfully!!',
