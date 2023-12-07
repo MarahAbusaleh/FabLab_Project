@@ -37,7 +37,7 @@
           <div class="container">
               <center>
 
-                  <p class="mb-0"><a href="#">Powered by Coding Academy by Orange | Irbid</a> &copy; 2023 All
+                  <p class="mb-0"><a href="{{route('showDevelopers')}}">Powered by Coding Academy by Orange | Irbid</a> &copy; 2023 All
                       Rights
                       Reserved.</p>
 

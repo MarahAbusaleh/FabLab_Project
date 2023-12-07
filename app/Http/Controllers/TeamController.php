@@ -69,6 +69,13 @@ class TeamController extends Controller
     }
 
 
+    public function showDevelopers(Team $team)
+    {
+        $ContactInfo = ContactInfo::first();
+        return view('pages.developers', compact('ContactInfo'));
+    }
+
+
     public function edit($id)
     {
         $team = Team::findOrFail($id);
